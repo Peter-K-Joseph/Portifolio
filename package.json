@@ -1,0 +1,18 @@
+{
+  "name": "portifolio",
+  "version": "1.0.0",
+  "description": "A person portifolio for Peter K Joseph",
+  "main": "script.js",
+  "scripts": {
+    "test": "tsc"
+  },
+  "keywords": [
+    "portifolio"
+  ],
+  "author": "Peter K Joseph",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jquery": "^3.5.5"
+  }
+}
