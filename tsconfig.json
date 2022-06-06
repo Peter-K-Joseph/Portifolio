@@ -2,6 +2,7 @@
     "compilerOptions": {
         "target": "esnext",
         "watch": true,
+        "outDir": "dist/js"
     },
-    "strict": true,
+    "strict": true
 }

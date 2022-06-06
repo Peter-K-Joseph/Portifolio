@@ -1,18 +1,22 @@
 {
-  "name": "portifolio",
+  "name": "personal-portifolio",
   "version": "1.0.0",
-  "description": "A person portifolio for Peter K Joseph",
-  "main": "script.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "tsc"
+    "sass-compile-autorun": "sass --watch src:dist/css",
+    "start-typescript": "tsc"
   },
-  "keywords": [
-    "portifolio"
-  ],
   "author": "Peter K Joseph",
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "@types/jquery": "^3.5.5"
+  "dependencies": {
+    "@types/jquery": "^3.5.6",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "path": "^0.12.7",
+    "sass": "^1.41.1",
+    "typescript": "^4.4.3",
+    "winston": "^3.7.2"
   }
 }

@@ -1,0 +1,116 @@
+{
+    "interships": [
+        {
+            "role": "AWS Intern",
+            "company": {
+                "short": "F13 Tech",
+                "full": "FXII Technologies"
+            },
+            "bg": "light",
+            "duration": "3 Months",
+            "files": [],
+            "image": "./resources/company_fxii.png",
+            "projects": ["AWS Site Creation using EC2 and other tools"],
+            "keypoints": [
+                "Learnt how to deploy applications on AWS",
+                "Learnt how to make the most out of the different services provided by AWS",
+                "Learnt how to evaluate the best services at AWS and to reduce cost of ownership",
+                "Learnt the working of AWS Partner Networks",
+                "Learnt how to collaborate with workplace environment",
+                "Migrated a personal project on AWS using AWS EC2, AWS Bucket Storage and AWS Aurora"
+            ],
+            "about": "F13 helps companies make better, more informed decisions based on insights from the outside. We believe that business strategy will be increasingly shaped by insights from online data. Organizations will look outside, beyond their internal reporting systems to a world of data that is constantly growing and changing. Our customers use these insights to make timely decisions based on real-time analysis."
+        }, {
+            "role": "Software Intern",
+            "company": {
+                "short": "IIC Cell",
+                "full": "Industry Interaction Cell, Christ (Deemed to be) University"
+            }, 
+            "bg": "dark",
+            "files": [],
+            "projects": [],
+            "duration": "In Progress",
+            "image": "./resources/company_iic.png",
+            "keypoints": [],
+            "about": "The Institute Industry Interaction Cell (IIIC) at CHRIST (Deemed to be University) contributes to its programs and partnership with industry."
+        }, {
+            "role": "Tech Tank Volunteer",
+            "projects": ["CEWScope Service Manager", "CEWS Booking System", "CAPS Backend Management and Analytics Tool", "NiaRecruit Recruitment Manager"],
+            "company": {
+                "short": "CAPS",
+                "full": "Center for Academic and Professional Support"
+            }, 
+            "bg": "light",
+            "files": [{
+                "name": "Letter or Recognition - UX/UI Developer",
+                "file": "/resources/files/caps_1.pdf"
+            }, {
+                "name": "Letter or Recognition - Best Tech Tank Volunteer",
+                "file": "/resources/files/caps_2.pdf"
+            }],
+            "duration": "2 Years",
+            "image": "./resources/company_caps.png",
+            "keypoints": [
+                "Worked on <code>CEWScope</code>, a software created by me to enhance the workflow at CAPS.",
+                "Worked and attended webinars, seminars and MUNs (Modal United Nations)",
+                "Enhanced my teamwork and social skills",
+                "Interacted and connected with new industry experts to gain knowledge",
+                "Recruited volunteers for Tech Tank and other committees"
+            ],
+            "about": "At its core, CAPS provides assistance in academic and professional areas for anyone who may need it. The doors of CAPS are open to students, faculty, researchers, and anyone who is seeking help. At an individual level, CAPS helps one attain greater proficiency in competencies related to the academic and professional sphere, through a wide array of topics ranging from research to career readiness. It is also an opportunity to develop one's networking skills and understand industry expectations through interaction-based university-wide sessions. At an organizational level, it creates a platform for all the deaneries, that promotes cross-fertilization of ideas and knowledge, leading to optimal utilization of the university’s resources. At a societal level, CAPS aims to produce holistically developed individuals, equipped with the appropriate skill sets that enable them to make a difference. "
+        }, {
+            "role": "Python Developer",
+            "projects": ["RebelMouse CMS Site Migration Toolkit"],
+            "company": {
+                "short": "NewsGram",
+                "full": "NewsGram"
+            }, 
+            "files": [{
+                "name": "Internship Completion Letter",
+                "file": "/resources/files/newsgram_1.pdf"
+            }],
+            "bg": "light",
+            "duration": "7 Months",
+            "image": "./resources/company_newsgram.webp",
+            "keypoints": [
+                "Created <code>Rebelmouse Site Migration ToolKits</code>",
+                "Migrated <code>Wordpress</code> site to <code>RebelMouse</code> Content Management System",
+                "Worked with <code>Postman</code> API",
+                "Worked with API based authentication",
+                "Worked with small amounts of image processing",
+                "Worked with content parsing and HTML formating using <code>beautifulsoup</code>",
+                "Completed transfers of about 50000 articles with images and it's metadata",
+                "Used tools <code>Google Colab</code>",
+                "Worked with <code>Amazon S3</code>"
+            ],
+            "about": "NewsGram is a US-based nonprofit committed to bring objective and non-partisan news reporting to our readers. It is approved by Internal Revenue Service (IRS) as a tax exempt entity, i.e., 501 (c) (3) entity."
+        }, {
+            "role": "Frontent Developer",
+            "company": {
+                "short": "CUREYA",
+                "full": "CUREYA"
+            },
+            "bg": "light",
+            "files": [{
+                "name": "Internship Completion Letter",
+                "file": "/resources/files/cureya_1.pdf"
+            }],
+            "duration": "1 Month",
+            "projects": ["Frontent For Travel Chat Bots"],
+            "image": "./resources/company_cureya.png",
+            "keypoints": [
+                "Learnt to collaborate with HR Manager",
+                "Learnt how to implement SEO optimisation in websites",
+                "Learnt various best practises while creating a webpage",
+                "Learnt to implement web-sockets",
+                "Created frontent for a bot page"
+            ],
+            "about": "CUREYA is DPIIT recognized startup, registered under 'STARTUP INDIA SCHEME'. CUREYA collaborated with stakeholders include - ROOTSKILLS, ROOTSAPS, MSME - Chambers of commerce and many more. The recent online webinars are conducted by alternative practitioners that include - Ayurveda Experts, Energy Healing experts, Mental Health Counselors, etc."
+        }
+    ],
+    "statements": {
+        "bold": ["Developer", "Student", "Enthusiast", "Strategic Thinker"],
+        "underline": ["writes good code", "is learning BTech in CSE", "is learning full-stack", "solves real life coding problems"]
+    }, 
+    "resume": "./resources/files/Resume.pdf"
+}
