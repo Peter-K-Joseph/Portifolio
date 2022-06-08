@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sass-compile-autorun": "sass --watch src:dist/css",
+    "start-main-service": "node server.js",
     "start-typescript": "tsc"
   },
   "author": "Peter K Joseph",
