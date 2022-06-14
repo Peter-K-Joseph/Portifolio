@@ -18,7 +18,7 @@ const data = {
 	setting_data: require("./dist/json/settings.json"),
 };
 
-const port = 443;
+const port = 80;
 
 app.use(express.static("dist"));
 app.set('view engine', 'ejs');
