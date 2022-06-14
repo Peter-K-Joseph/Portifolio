@@ -1093,3 +1093,128 @@ nav {
         }
     }
 }
+
+@media only screen and (max-width: 720px) {
+    
+    .loader {
+        width: 100vw;
+        max-width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+    }
+    
+    body {
+        flex-direction: column-reverse;
+        --offset-mobile-tab: 50px;
+        min-height: calc(100vh - var(--offset-mobile-tab));
+        max-height: calc(100vh - var(--offset-mobile-tab));
+
+        .main {
+            
+            #projects .render .components {
+                .project{ 
+                    height: auto;
+
+                    h4 {
+                        margin: 10px 0 0 0;
+                    }
+
+                    .frameworks {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: center;
+
+                        span {
+                            margin: 4px 2px;
+                        }
+                    }
+                }
+            }
+
+            #experience {
+                h1 {
+                    text-align: center;
+                }
+
+                div > .content-box .companies .company img {
+                    height: auto;
+                    width: 50%;
+                }
+            }
+
+            #home {
+                flex-direction: column;
+
+                .col {
+                    &:nth-child(1) {
+                        margin: 50px 0;
+
+                        .intro__image {
+                            width: 90%;
+                            height: 40vh;
+                        }
+                    } 
+
+                    &:nth-child(2) {
+                        margin: 0 30px;
+                        max-width: calc(100vw - 60px);
+
+                        div {
+                            h1 {
+                                font-size: 3rem;
+                            }
+
+                            .catchy_text {
+                                .underlined {
+                                    background-image: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        nav {
+            overflow: auto;
+            height: 80%;
+
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                li {
+                    padding: 0 20px;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    .dispathInfoBox {
+        width: 100vw;
+        border-radius: 0;
+
+        .goback {
+            transform: rotate(-90deg) translate(-50% ,150%) !important;
+            top: 0;
+        }
+
+        .internship {
+            .col h3 {
+                flex-direction: column;
+            }
+
+            .disclaimer {
+                display: none;
+            }
+
+            .duration {
+                margin-top: 20px;
+                margin-left: 0;
+            }
+        }
+    }
+}

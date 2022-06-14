@@ -193,16 +193,10 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 }, { threshold: [.6] }).observe(eventObserverElements.home);
-new IntersectionObserver(function (e) {
-	console.log(e[0].intersectionRatio)
-	let element = document.querySelector("[alias-project]")
-	if (!element.classList.contains("active")) {
-		document.querySelector("li.active").classList.remove("active")
-		element.classList.add("active")
-	}
-	element = eventObserverElements.projects 
-	if (!element.classList.contains("active")) element.classList.add("active")
-}, { threshold: [.4] }).observe(eventObserverElements.projects);
+// new IntersectionObserver(function (e) {
+// 	console.log(e[0].intersectionRatio)
+	
+// }, { threshold: [.4] }).observe(eventObserverElements.projects);
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-experience]")
 	if (!element.classList.contains("active")) {
@@ -216,13 +210,20 @@ document.querySelector(".main").addEventListener("scroll", () => {
 		return ((document.querySelector(".main").scrollTop - document.querySelector("#projects").offsetTop) / document.querySelector("#projects").scrollHeight ) * 1.8 * 100;
 	}
 	const ctx = rendererOnView();
-	if (ctx < 100 && ctx > 0) {
+	if (ctx < 120 && ctx > 0) {
 		if (document.querySelector(".scrollbit").classList.contains("hide")) {
 			document.querySelector(".scrollbit").classList.remove("hide")
+			let element = document.querySelector("[alias-project]")
+			if (!element.classList.contains("active")) {
+				document.querySelector("li.active").classList.remove("active")
+				element.classList.add("active")
+			}
+			element = eventObserverElements.projects 
+			if (!element.classList.contains("active")) element.classList.add("active")
 		}
 		document.querySelector(".scrollbit").style.height = `${(ctx)}vh`;
 	} 
-	else if ((ctx > 100 || ctx < 0) && !document.querySelector(".scrollbit").classList.contains("hide")) {
+	else if ((ctx > 120 || ctx < 0) && !document.querySelector(".scrollbit").classList.contains("hide")) {
 		document.querySelector(".scrollbit").classList.add("hide")
 	}
 }, { passive: true })

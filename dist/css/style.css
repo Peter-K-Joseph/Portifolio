@@ -922,4 +922,94 @@ nav ul li.active {
   margin: 15px 20px;
 }
 
+@media only screen and (max-width: 720px) {
+  .loader {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+  }
+
+  body {
+    flex-direction: column-reverse;
+    --offset-mobile-tab: 50px;
+    min-height: calc(100vh - var(--offset-mobile-tab));
+    max-height: calc(100vh - var(--offset-mobile-tab));
+  }
+  body .main #projects .render .components .project {
+    height: auto;
+  }
+  body .main #projects .render .components .project h4 {
+    margin: 10px 0 0 0;
+  }
+  body .main #projects .render .components .project .frameworks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  body .main #projects .render .components .project .frameworks span {
+    margin: 4px 2px;
+  }
+  body .main #experience h1 {
+    text-align: center;
+  }
+  body .main #experience div > .content-box .companies .company img {
+    height: auto;
+    width: 50%;
+  }
+  body .main #home {
+    flex-direction: column;
+  }
+  body .main #home .col:nth-child(1) {
+    margin: 50px 0;
+  }
+  body .main #home .col:nth-child(1) .intro__image {
+    width: 90%;
+    height: 40vh;
+  }
+  body .main #home .col:nth-child(2) {
+    margin: 0 30px;
+    max-width: calc(100vw - 60px);
+  }
+  body .main #home .col:nth-child(2) div h1 {
+    font-size: 3rem;
+  }
+  body .main #home .col:nth-child(2) div .catchy_text .underlined {
+    background-image: none;
+  }
+  body nav {
+    overflow: auto;
+    height: 80%;
+  }
+  body nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body nav ul li {
+    padding: 0 20px;
+    font-size: 1.2rem;
+  }
+
+  .dispathInfoBox {
+    width: 100vw;
+    border-radius: 0;
+  }
+  .dispathInfoBox .goback {
+    transform: rotate(-90deg) translate(-50%, 150%) !important;
+    top: 0;
+  }
+  .dispathInfoBox .internship .col h3 {
+    flex-direction: column;
+  }
+  .dispathInfoBox .internship .disclaimer {
+    display: none;
+  }
+  .dispathInfoBox .internship .duration {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
