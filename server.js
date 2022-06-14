@@ -15,7 +15,7 @@ const logger = createLogger({
 });
 
 const data = {
-	internship: require("./dist/json/settings.json"),
+	setting_data: require("./dist/json/settings.json"),
 };
 
 const port = 80;
@@ -40,19 +40,25 @@ app.get("/", (req, res) => {
 app.post("/apis/internship", (req, res) => {
 	logger.info(`Access requested to get internship data`);
 	res.header("Content-Type", "application/json");
-	res.send(JSON.stringify(data.internship["interships"]));
+	res.send(JSON.stringify(data.setting_data["interships"]));
 });
 
 app.post("/apis/resume", (req, res) => {
 	logger.info(`Access requested to get internship data`);
 	res.header("Content-Type", "application/json");
-	res.send(JSON.stringify(data.internship["resume"]));
+	res.send(JSON.stringify(data.setting_data["resume"]));
 });
 
 app.post("/apis/texts", (req, res) => {
 	logger.info(`Access requested to get text data`);
 	res.header("Content-Type", "application/json");
-	res.send(JSON.stringify(data.internship["statements"]));
+	res.send(JSON.stringify(data.setting_data["statements"]));
+});
+
+app.post("/apis/projects", (req, res) => {
+	logger.info(`Access requested to get project data`);
+	res.header("Content-Type", "application/json");
+	res.send(JSON.stringify(data.setting_data["projects"]));
 });
 
 app.listen(port, () => {

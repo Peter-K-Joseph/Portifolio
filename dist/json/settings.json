@@ -112,5 +112,56 @@
         "bold": ["Developer", "Student", "Enthusiast", "Strategic Thinker"],
         "underline": ["writes good code", "is learning BTech in CSE", "is learning full-stack", "solves real life coding problems"]
     }, 
-    "resume": "./resources/files/Resume.pdf"
+    "resume": "./resources/files/Resume.pdf",
+    "projects": [{
+        "name": "CAPScope Recruitment",
+        "frameworks": ["HTML","SCSS","TypeScript","JQuery","PHP","Electron","Node.js","MySQL"],
+        "organisation": "CAPS",
+        "desc": "CAPScope Recruitment is a web application that can be used for recruitment of volunteers. It gives you the flexibility of distributing the recruitment evenly across recruiters, view and manage recruitees and many more."
+    }, {
+        "name": "CAPS Management System",
+        "frameworks": ["HTML","SCSS","TypeScript","JQuery","PHP","MySQL"],
+        "organisation": "CAPS",
+        "desc": "CAPS Management System is a software used create bookings, manage and maintain booking records, view statistics and more. It has a user access portal and a volunteer access portal. Consisits of a User Account page, booking page, booking management page and a control panel with overview dashboard."
+        },{
+        "name": "Theresian School Magazine",
+        "frameworks": ["HTML","SCSS","JavaScript","JQuery"],
+        "organisation": "St Theresa's High School",
+        "desc": "A static, yet interactive school magazine built using Flip.js and HTML based pages. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://theresian.nuvie.live/\">Click here to view project</a>."
+    }, {
+        "name": "School Attendance System",
+        "frameworks": ["HTML","SCSS","JavaScript","JQuery", "PHP", "MySQL"],
+        "organisation": "St Theresa's High School",
+        "desc": "A school attendance system built to log students attendance and view them individually and as an overview."
+    }, {
+        "name": "Smartlink Connect Kit",
+        "frameworks": ["HTML","SCSS","JavaScript","JQuery", "Python"],
+        "organisation": null,
+        "desc": "A webapp used to control and montitor home applicances. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/frontent/\">Click here to view project theme</a> or <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/nuvie%20HomeLink%20PWA/dist/\">Click here to view mobile PWA theme</a>"
+    }, {
+        "name": "LightALamp: Online Inaguration System",
+        "frameworks": ["HTML","SCSS","JavaScript","JQuery", "PHP","MySQL"],
+        "organisation": null,
+        "desc": "A webapp used to control and montitor home applicances. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/frontent/\">Click here to view project theme</a> or <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/nuvie%20HomeLink%20PWA/dist/\">Click here to view mobile PWA theme</a>"
+    }, {
+        "name": "Nia Aurora",
+        "frameworks": ["Python"],
+        "organisation": null,
+        "desc": "A Discord music bot made using python and discord-api that can play, stream and download music."
+        }, {
+        "name": "Mus.io",
+        "frameworks": ["HTML","SCSS","JavaScript","JQuery", "Python"],
+        "organisation": null,
+        "desc": "A simple music player. Still in progress, this player can scan the entire local machine, find and play music. <a href=\"https://peter-k-joseph.github.io/Musio/dist/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view a preview of the theme</a>"
+    }, {
+        "name": "Wordpress to Rebelmouse Migration Toolkit",
+        "frameworks": ["Python"],
+        "organisation": "NewsGram",
+        "desc": "A tool kit used to migrate wordpress data, its posts, images and metadata to Rebelmouse CMS."
+    }, {
+        "name": "ClassQuiz: User Dashboard",
+        "frameworks": ["HTML", "CSS", "JavaScript"],
+        "organisation": "NewsGram",
+        "desc": "A frontent project for a quiz user dashboard that can view and manage quizzes, start and stop quizzes and create quiz. <a href=\"https://peter-k-joseph.github.io/ClassQuiz-User-Dashboard/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view theme</a>"
+    }]
 }

@@ -7,21 +7,10 @@ const eventObserverElements = {
 	"main": document.querySelector(".main")
 }
 const apis = {
-	"interships": fetch("./apis/internship", {
-		method: "post"
-	}).then((data) => {
-		return data.json()
-	}), 
-	"text": fetch("./apis/texts", {
-		method: "post"
-	}).then((data) => {
-		return data.json()
-	}),
-	"resume_url": fetch("./apis/resume", {
-		method: "post"
-	}).then((data) => {
-		return data.json()
-	}),
+	"interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json() }), 
+	"projects": fetch("/apis/projects", { method: "post" }).then(data => {return data.json()} ),
+	"text": fetch("./apis/texts", {method: "post"}).then((data) => { return data.json() }),
+	"resume_url": fetch("./apis/resume", { method: "post" }).then((data) => { return data.json() }),
 	"dispatch_viewBarClose": () => {
 		let dispathInfoBox = document.querySelector(".dispathInfoBox");
 		dispathInfoBox.classList.add("close")
@@ -146,20 +135,39 @@ apis.interships.then((e) => {
 	})
 })
 
+apis.projects.then((e) => {
+	const target = document.querySelector("#my_projects");
+	const appendHTML = (title, lang, comp, desc) => {
+		const compoundSelectHTML = (mode) => {
+			let stream = ((mode == 0)? lang: comp)
+			let data = '';
+			if (mode == 0) for (let i = 0 ; i < stream.length; i++) data = data + `<span class="framework">${stream[i]}</span>`
+			else return (stream != null)?`<span class="colab">${stream}</span>`: ''
+			return data
+		}
+		target.innerHTML = target.innerHTML +  `<div class="project"><h4><span>${title}</span><div class="frameworks">${compoundSelectHTML(0)}${compoundSelectHTML(1)}</div></h4><div class="contain"><div class="desc">${desc}</div></div></div>`
+	}
+
+	for (let i = 0 ; i < e.length; i++) appendHTML(e[i].name, e[i].frameworks, e[i].organisation, e[i].desc)
+})
+
 // Animation and Transition
 const transitionScaling: number = 2
 eventObserverElements.main.addEventListener("scroll", (e) => {
 	new IntersectionObserver(function (entries) {
 		let x = 0;
 		if (entries[0].intersectionRatio <= .25) return
+		const val = eventObserverElements.main.scrollTop / (document.querySelector("#home").clientHeight * 2 / transitionScaling)
 		if (document.querySelector("div.active") != null && entries[0].intersectionRatio >= .9)
 			document.querySelector("div.active").classList.remove("active")
 		document.querySelectorAll('#home div.col').forEach((e) => {
 			x = x + 1;
-			if (x == 1)
-				e.style.transform = `translateY(-${eventObserverElements.main.scrollTop / (document.querySelector("#home").clientHeight * 2 / transitionScaling) * 100 / x}%) perspective(30px) rotateY(${eventObserverElements.main.scrollTop / document.querySelector("#home").clientHeight * 2}deg)`
+			if (x == 1) {
+				e.style.opacity = `${(100 - (val * 100 / x * transitionScaling))}%`
+				e.style.transform = `translateY(-${val * 100 / x}%) perspective(30px) rotateY(${eventObserverElements.main.scrollTop / document.querySelector("#home").clientHeight}deg)`
+			}
 			else
-				e.style.transform = `translateY(-${eventObserverElements.main.scrollTop / (document.querySelector("#home").clientHeight * 2 / transitionScaling) * 100 / x}%)`
+				e.style.transform = `translateY(-${val * 100 / x}%)`
 		})
 	}).observe(document.querySelector("#home"))
 }, { passive: true })
@@ -185,6 +193,16 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 }, { threshold: [.6] }).observe(eventObserverElements.home);
+new IntersectionObserver(function (e) {
+	console.log(e[0].intersectionRatio)
+	let element = document.querySelector("[alias-project]")
+	if (!element.classList.contains("active")) {
+		document.querySelector("li.active").classList.remove("active")
+		element.classList.add("active")
+	}
+	element = eventObserverElements.projects 
+	if (!element.classList.contains("active")) element.classList.add("active")
+}, { threshold: [.4] }).observe(eventObserverElements.projects);
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-experience]")
 	if (!element.classList.contains("active")) {
@@ -192,17 +210,23 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 }, { threshold: [.6] }).observe(eventObserverElements.experience);
-new IntersectionObserver(function () {
-	let element = document.querySelector("[alias-project]")
-	if (!element.classList.contains("active")) {
-		document.querySelector("li.active").classList.remove("active")
-		element.classList.add("active")
+
+document.querySelector(".main").addEventListener("scroll", () => {
+	const rendererOnView = () => {
+		return ((document.querySelector(".main").scrollTop - document.querySelector("#projects").offsetTop) / document.querySelector("#projects").scrollHeight ) * 1.8 * 100;
 	}
-	element = eventObserverElements.projects
-	if (!element.classList.contains("active")) {
-		element.classList.add("active")
+	const ctx = rendererOnView();
+	if (ctx < 100 && ctx > 0) {
+		if (document.querySelector(".scrollbit").classList.contains("hide")) {
+			document.querySelector(".scrollbit").classList.remove("hide")
+		}
+		document.querySelector(".scrollbit").style.height = `${(ctx)}vh`;
+	} 
+	else if ((ctx > 100 || ctx < 0) && !document.querySelector(".scrollbit").classList.contains("hide")) {
+		document.querySelector(".scrollbit").classList.add("hide")
 	}
-}, { threshold: [.6] }).observe(eventObserverElements.projects);
+}, { passive: true })
+
 window.addEventListener('load', () => {
 	document.querySelector(".load").style.animation = "completed 2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards"
 	document.querySelector(".loader").style.animation = "identifier 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards"
