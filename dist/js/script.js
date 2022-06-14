@@ -205,7 +205,7 @@ document.querySelector(".main").addEventListener("scroll", () => {
         return ((document.querySelector(".main").scrollTop - document.querySelector("#projects").offsetTop) / document.querySelector("#projects").scrollHeight) * 1.8 * 100;
     };
     const ctx = rendererOnView();
-    if (ctx < 120 && ctx > 0) {
+    if (ctx < 120 && ctx > -20) {
         if (document.querySelector(".scrollbit").classList.contains("hide")) {
             document.querySelector(".scrollbit").classList.remove("hide");
             let element = document.querySelector("[alias-project]");
@@ -219,7 +219,7 @@ document.querySelector(".main").addEventListener("scroll", () => {
         }
         document.querySelector(".scrollbit").style.height = `${(ctx)}vh`;
     }
-    else if ((ctx > 120 || ctx < 0) && !document.querySelector(".scrollbit").classList.contains("hide")) {
+    else if ((ctx > 120 || ctx < -20) && !document.querySelector(".scrollbit").classList.contains("hide")) {
         document.querySelector(".scrollbit").classList.add("hide");
     }
 }, { passive: true });
