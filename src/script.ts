@@ -1,10 +1,10 @@
-const navbarElement = document.querySelectorAll(".nav-items");
-let currentFocusPoint = 0;
 const eventObserverElements = {
+	"navbar": document.querySelectorAll(".nav-items"),
 	"home": document.querySelector('#home'),
 	"experience": document.querySelector('#experience'),
 	"projects": document.querySelector("#projects"),
-	"main": document.querySelector(".main")
+	"main": document.querySelector(".main"),
+	"education": document.querySelector("#education")
 }
 const apis = {
 	"interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json() }), 
@@ -23,7 +23,7 @@ const apis = {
 		const states = ["paused", "running"]
 		const animationContainer = document.querySelectorAll("[data-animation]");
 		animationContainer.forEach(element => {
-			element.style.animationPlayState = states[state]
+			(element as HTMLElement | null).style.animationPlayState = states[state]
 		})
 	},
 	"removeActive": (e) => {
@@ -39,10 +39,10 @@ document.querySelector("#view_resume").addEventListener('click', () => {
 		document.querySelector(".sub").innerHTML = DOMcontent;
 	})
 })
-navbarElement.forEach(element => {
+eventObserverElements.navbar.forEach(element => {
 	element.addEventListener("click", (e) => {
 		if (document.querySelector("#closeEventButton") != null)
-			document.querySelector("#closeEventButton").click()
+			document.getElementById("closeEventButton").click()
 	});
 })
 
@@ -54,8 +54,8 @@ async function typeSentence(e, data) {
 	const prof = data["bold"];
 	const quotes = data["underline"]
 	intro_text[0].innerHTML = prof[e];
-	intro_text[1].innerHTML = ""
-	intro_text[1].style.opacity = "1";
+	intro_text[1].innerHTML = "";
+	(intro_text[1] as HTMLElement | null).style.opacity = "1";
 	const letters = quotes[e].split("");
 	let i = 0;
 	while (i < letters.length) {
@@ -63,7 +63,7 @@ async function typeSentence(e, data) {
 		intro_text[1].innerHTML = intro_text[1].innerHTML + letters[i]
 		i++
 	}
-	setTimeout(() => { intro_text[1].style.opacity = "0"; }, 4500)
+	setTimeout(() => { (intro_text[1] as HTMLElement | null).style.opacity = "0"; }, 4500)
 	setTimeout(() => { typeSentence((e == prof.length - 1) ? 0 : e + 1, data)}, 5000)
 	return;
 }
@@ -81,7 +81,7 @@ apis.interships.then((e) => {
 	document.querySelectorAll(".companyClicked").forEach((e) => {
 		e.addEventListener("click", (e) => {
 			eventObserverElements.main.classList.add("onBackground")
-			let curr_selection = interData[e.target.getAttribute("data-id")]
+			let curr_selection = interData[(e.target as HTMLElement | null).getAttribute("data-id")]
 			const getKeyPoints = () => {
 				let childLI
 				let main = document.createElement("div")
@@ -97,13 +97,13 @@ apis.interships.then((e) => {
 				}
 				return main.innerHTML
 			}
-			let DOMcontent = `<div class="dispathInfoBox"><div class="internship"><div class="row"><div class="col"><img src="${curr_selection.image}" ${(curr_selection.bg == "dark") ? 'class="dark"' : ''} alt="${curr_selection.company.full}" srcset=""></div><div class="col"><h2 class="role">${curr_selection.role}</h2><h3 data-tooltip="${curr_selection.about}">${curr_selection.company.full} <span class="duration">${curr_selection.duration}</span></h3><span class="info"><div><h4>Experience</h4>${getKeyPoints()}</div></span><div>${(curr_selection.files.length == 0) ? "" : `<button class="getInternshipCompletionLetter" id="getInternshipCompletionLetter" data-id="${e.target.getAttribute("data-id")}">View Related Files</button>`}</div></div></div><span class="disclaimer">*Offer letter and other project details may be hidden due to legal reasons</span></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`		
+			let DOMcontent = `<div class="dispathInfoBox"><div class="internship"><div class="row"><div class="col"><img src="${curr_selection.image}" ${(curr_selection.bg == "dark") ? 'class="dark"' : ''} alt="${curr_selection.company.full}" srcset=""></div><div class="col"><h2 class="role">${curr_selection.role}</h2><h3 data-tooltip="${curr_selection.about}">${curr_selection.company.full} <span class="duration">${curr_selection.duration}</span></h3><span class="info"><div><h4>Experience</h4>${getKeyPoints()}</div></span><div>${(curr_selection.files.length == 0) ? "" : `<button class="getInternshipCompletionLetter" id="getInternshipCompletionLetter" data-id="${(e.target as HTMLElement | null).getAttribute("data-id")}">View Related Files</button>`}</div></div></div><span class="disclaimer">*Offer letter and other project details may be hidden due to legal reasons</span></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`		
 			document.querySelector(".sub").innerHTML = DOMcontent;
 			if (curr_selection.files.length == 0) return;
 			const internshipDataButton = document.querySelector("#getInternshipCompletionLetter")
 			internshipDataButton.removeEventListener("click", () => {})
 			internshipDataButton.addEventListener("click", (e) => {
-				const dataStream = interData[e.target.getAttribute("data-id")].files
+				const dataStream = interData[(e.target as HTMLElement | null).getAttribute("data-id")].files
 				let dispathInfoBox = document.querySelector(".dispathInfoBox");
 				dispathInfoBox.classList.add("close_open")
 				setTimeout(() => {
@@ -123,7 +123,7 @@ apis.interships.then((e) => {
 							dispathInfoBox.classList.add("close_open")
 							let x = e.currentTarget;
 							setTimeout(() => {
-								const file = x.getAttribute("data-intern-link")
+								const file = (x as HTMLElement | null).getAttribute("data-intern-link")
 								document.querySelector(".resourceRequested").innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`
 								dispathInfoBox.classList.remove("close_open")
 							}, 200)
@@ -163,17 +163,20 @@ eventObserverElements.main.addEventListener("scroll", (e) => {
 		document.querySelectorAll('#home div.col').forEach((e) => {
 			x = x + 1;
 			if (x == 1) {
-				e.style.opacity = `${(100 - (val * 100 / x * transitionScaling))}%`
-				e.style.transform = `translateY(-${val * 100 / x}%) perspective(30px) rotateY(${eventObserverElements.main.scrollTop / document.querySelector("#home").clientHeight}deg)`
+				(e as HTMLElement | null).style.opacity = `${(100 - (val * 100 / x * transitionScaling))}%`;
+				(e as HTMLElement | null).style.transform = `translateY(-${val * 100 / x}%) perspective(30px) rotateY(${eventObserverElements.main.scrollTop / document.querySelector("#home").clientHeight}deg)`
 			}
 			else
-				e.style.transform = `translateY(-${val * 100 / x}%)`
+				(e as HTMLElement | null).style.transform = `translateY(-${val * 100 / x}%)`
 		})
 	}).observe(document.querySelector("#home"))
 }, { passive: true })
 
+
+
+// Intersection Observers for individual views
+// >> Experience
 new IntersectionObserver(() => {
-	currentFocusPoint = 1
 	let element = document.querySelector("div.active")
 	if (element != null) {
 		element.classList.remove("active")
@@ -183,9 +186,7 @@ new IntersectionObserver(() => {
 		element.classList.add("active")
 	}
 }, { threshold: [.3, .7, 1] }).observe(eventObserverElements.experience);
-
-
-// NAV BAR Nab
+// >> Home view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-home]")
 	if (!element.classList.contains("active")) {
@@ -193,21 +194,46 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 }, { threshold: [.6] }).observe(eventObserverElements.home);
-// new IntersectionObserver(function (e) {
-// 	console.log(e[0].intersectionRatio)
-	
-// }, { threshold: [.4] }).observe(eventObserverElements.projects);
+// Experience view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-experience]")
 	if (!element.classList.contains("active")) {
 		document.querySelector("li.active").classList.remove("active")
 		element.classList.add("active")
 	}
+	if (document.querySelector(".main .active").classList.contains("active")) {
+		document.querySelector(".main .active").classList.remove("active")
+	}
+	eventObserverElements.experience.classList.add("active")
 }, { threshold: [.6] }).observe(eventObserverElements.experience);
-
+// Education view
+new IntersectionObserver(function () {
+	let element = document.querySelector("[alias-education]")
+	if (!element.classList.contains("active")) {
+		document.querySelector("li.active").classList.remove("active")
+		element.classList.add("active")
+	}
+	if (document.querySelector(".main .active").classList.contains("active")) {
+		document.querySelector(".main .active").classList.remove("active")
+	}
+	eventObserverElements.education.classList.add("active")
+}, { threshold: [.6] }).observe(eventObserverElements.education);
+// Project view
+new IntersectionObserver(function () {
+	let element = document.querySelector("[alias-project]")
+	if (!element.classList.contains("active")) {
+		document.querySelector("li.active").classList.remove("active")
+		element.classList.add("active")
+	}
+	if (document.querySelectorAll(".main .active").length != 0) {
+		document.querySelector(".main .active").classList.remove("active")
+	}
+	eventObserverElements.projects.classList.add("active")
+}, { threshold: [.6] }).observe(eventObserverElements.projects);
+// Scroll View observer for elements
 document.querySelector(".main").addEventListener("scroll", () => {
 	const rendererOnView = () => {
-		return ((document.querySelector(".main").scrollTop - document.querySelector("#projects").offsetTop) / document.querySelector("#projects").scrollHeight ) * 1.8 * 100;
+		return ((document.querySelector(".main").scrollTop - (document.querySelector("#projects") as HTMLElement | null).offsetTop) / document.querySelector("#projects").scrollHeight ) * 1.8 * 100;
 	}
 	const ctx = rendererOnView();
 	if (ctx < 120 && ctx > -20) {
@@ -221,7 +247,7 @@ document.querySelector(".main").addEventListener("scroll", () => {
 			element = eventObserverElements.projects 
 			if (!element.classList.contains("active")) element.classList.add("active")
 		}
-		document.querySelector(".scrollbit").style.height = `${(ctx)}vh`;
+		(document.querySelector(".scrollbit") as HTMLElement | null).style.height = `${(ctx)}vh`;
 	} 
 	else if ((ctx > 120 || ctx < -20) && !document.querySelector(".scrollbit").classList.contains("hide")) {
 		document.querySelector(".scrollbit").classList.add("hide")
@@ -229,8 +255,8 @@ document.querySelector(".main").addEventListener("scroll", () => {
 }, { passive: true })
 
 window.addEventListener('load', () => {
-	document.querySelector(".load").style.animation = "completed 2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards"
-	document.querySelector(".loader").style.animation = "identifier 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards"
+	(document.querySelector(".load") as HTMLElement | null).style.animation = "completed 2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards";
+	(document.querySelector(".loader") as HTMLElement | null).style.animation = "identifier 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards"
 	setTimeout(() => {
 		document.querySelector(".sub").innerHTML = "";
 		apis.animationHandler(1);

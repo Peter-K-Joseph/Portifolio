@@ -1,10 +1,10 @@
-const navbarElement = document.querySelectorAll(".nav-items");
-let currentFocusPoint = 0;
 const eventObserverElements = {
+    "navbar": document.querySelectorAll(".nav-items"),
     "home": document.querySelector('#home'),
     "experience": document.querySelector('#experience'),
     "projects": document.querySelector("#projects"),
-    "main": document.querySelector(".main")
+    "main": document.querySelector(".main"),
+    "education": document.querySelector("#education")
 };
 const apis = {
     "interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json(); }),
@@ -39,10 +39,10 @@ document.querySelector("#view_resume").addEventListener('click', () => {
         document.querySelector(".sub").innerHTML = DOMcontent;
     });
 });
-navbarElement.forEach(element => {
+eventObserverElements.navbar.forEach(element => {
     element.addEventListener("click", (e) => {
         if (document.querySelector("#closeEventButton") != null)
-            document.querySelector("#closeEventButton").click();
+            document.getElementById("closeEventButton").click();
     });
 });
 async function typeSentence(e, data) {
@@ -171,8 +171,9 @@ eventObserverElements.main.addEventListener("scroll", (e) => {
         });
     }).observe(document.querySelector("#home"));
 }, { passive: true });
+// Intersection Observers for individual views
+// >> Experience
 new IntersectionObserver(() => {
-    currentFocusPoint = 1;
     let element = document.querySelector("div.active");
     if (element != null) {
         element.classList.remove("active");
@@ -182,7 +183,7 @@ new IntersectionObserver(() => {
         element.classList.add("active");
     }
 }, { threshold: [.3, .7, 1] }).observe(eventObserverElements.experience);
-// NAV BAR Nab
+// >> Home view
 new IntersectionObserver(function () {
     let element = document.querySelector("[alias-home]");
     if (!element.classList.contains("active")) {
@@ -190,16 +191,43 @@ new IntersectionObserver(function () {
         element.classList.add("active");
     }
 }, { threshold: [.6] }).observe(eventObserverElements.home);
-// new IntersectionObserver(function (e) {
-// 	console.log(e[0].intersectionRatio)
-// }, { threshold: [.4] }).observe(eventObserverElements.projects);
+// Experience view
 new IntersectionObserver(function () {
     let element = document.querySelector("[alias-experience]");
     if (!element.classList.contains("active")) {
         document.querySelector("li.active").classList.remove("active");
         element.classList.add("active");
     }
+    if (document.querySelector(".main .active").classList.contains("active")) {
+        document.querySelector(".main .active").classList.remove("active");
+    }
+    eventObserverElements.experience.classList.add("active");
 }, { threshold: [.6] }).observe(eventObserverElements.experience);
+// Education view
+new IntersectionObserver(function () {
+    let element = document.querySelector("[alias-education]");
+    if (!element.classList.contains("active")) {
+        document.querySelector("li.active").classList.remove("active");
+        element.classList.add("active");
+    }
+    if (document.querySelector(".main .active").classList.contains("active")) {
+        document.querySelector(".main .active").classList.remove("active");
+    }
+    eventObserverElements.education.classList.add("active");
+}, { threshold: [.6] }).observe(eventObserverElements.education);
+// Project view
+new IntersectionObserver(function () {
+    let element = document.querySelector("[alias-project]");
+    if (!element.classList.contains("active")) {
+        document.querySelector("li.active").classList.remove("active");
+        element.classList.add("active");
+    }
+    if (document.querySelectorAll(".main .active").length != 0) {
+        document.querySelector(".main .active").classList.remove("active");
+    }
+    eventObserverElements.projects.classList.add("active");
+}, { threshold: [.6] }).observe(eventObserverElements.projects);
+// Scroll View observer for elements
 document.querySelector(".main").addEventListener("scroll", () => {
     const rendererOnView = () => {
         return ((document.querySelector(".main").scrollTop - document.querySelector("#projects").offsetTop) / document.querySelector("#projects").scrollHeight) * 1.8 * 100;
