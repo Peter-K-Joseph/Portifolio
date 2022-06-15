@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <link rel="stylesheet" href="./css/style_pdf.css">
+</head>
+
+<body>
+    <nav class="name">
+        <span id="title_display">PDF VIEWER</span>
+    </nav>
+    <div class="controls">
+        <button id="prev"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEt0lEQVRoge2ZT2wUVRzHP29muqV/lNqWSCmQmFC2QKKHrRoTqIIelLCJHAhGNDFANISSeDExMSY1MXrwZKQEEXqCRMAYTIEjAYSQ1JZEE4UW9AAF1NKm1rJld2ffz4PdhN2Z7cybXXqhn+Pvvff7fb+7b96b9wbmmefRRlUiyRY5Zv99veY5rdV6USQUtAMtQP1MlyngtsCQEga1ZZ25uKK/H9Wty61dloHO6yeWoZ3dwFsCrYbDR0TksGPZPWfbNo5E1RDJwLprpxcp0Z8KvAPEohafIQOq1xb98dl48q7pYGMDncOn3hTkK6DRdGwAYwhdP8Y3fWsyKLSBxMBAVe3CO/sQtdNcW3gEvp6eXLxnsKMjG6Z/KAOJ2321dff4TkS9Vp680JxO1cuWwSXJVFBHK6hDYmCgao7FA2ysnVI/rPn1WODzFWigduGdfWHFNzgxdjS30+CU+1wD8EpjVd2XQZ1mnUKd1/q2iajDYao1ODF2Nq2mwYkx4WY4OPYbE24mrNjSAkXeOB9PHi3ZXqrh5SvfN2Xs2FWgOajIg+LzVNDEuC0SL7XElpxCWTv2GSHENzrVvNu82jNtGpwY25tW8bhd9nRq1KhPSjX6Gnjp2umlM5tUIGmdY1rn/CuXMGeKKHau/b1vuV+brwEtuouQO+w97dJ79wp/Zad92/2mVwRiuOzya/AakG5LYJtJ9rkwYSn19hY5ZnvixYEXryeeB5aaFnjYJgRa/xyuSRTHPQa0VusjVeDhm1CWtaE45jGgFB2Rss8QZGJR1QIOLe/kmdom49wiEvwPCKw0zlxEKRNVyuLp6oUssqv5YsmzJOoCV+lCFPHikN8q1GKW1Z9iE3nxdZYDwAJl83lLh5kJ8WrzM1DvE4tE3sSkmy4QnyeCiceKA4EvcxUh4KVdJHpqPwNT0dMVUmc5bG9exeN2Nb+k/+Gedgva70uOD28PcDkV+iT5b3HAz8Adc6le8uKfrKoBICu6wEQE8aC82rzLKAxHFZ2nWHyevInRXJoPbv1kJh5AGCoOeZdRYcBQbwGlxOcZzd5nx43z/Dw9ZpxblFebdye2rDPGmWcIEl/uGcHW2qPNY+Diiv5+UDdNkz9s8cCNcysvDxYHvQ+x6tYi+ohJ5jkQD0od8buK9N0HHMvuAUJVmxPxkHa17vFr8DXw/12l6g2TudqyqbE8r+kAjLtpDtytwLlY8c2lePKWX1PJndjN2h8BgevcuJvmwKhX5ISboXfsCpO5sg/1Y7YWszMxwKU1r44j7AlTYSKX4eADv3Qlr1VEsWu2S9/Aq8W1wyf3K3gvTLFGp5rNTzzF8fE/KvHLI0p6LrQlu2brE/gy19KW2o1SJ8IUHHfTHBq9WhHxwClnpP79oE6hL3drp9RxYGPZskIhJ1P1bK3I5S7A4JJkKjW5+HVQ+8sXNzuipMe+Vb85jHiI8oFjqG+rKLWXELd2hoyKYveFtk3HTQYZH2jOx5NHY7lMuxL2AWnT8T6kUex1s067qXgo8yPfC0N9rTZ0KWVtA1lmWPomisOu1j2lNqlQWaIOLEC6rXXDiQ5lWRtEJIEijtBKwWdWNQIyLIoBW+sz51ZeHqzEZ9Z55nnU+Q/63Q62qOPEOgAAAABJRU5ErkJggg=="/></button>
+        <span id="npages">Processing...</span>
+        <button id="next"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEt0lEQVRoge2ZT2wUVRzHP29muqV/lNqWSCmQmFC2QKKHrRoTqIIelLCJHAhGNDFANISSeDExMSY1MXrwZKQEEXqCRMAYTIEjAYSQ1JZEE4UW9AAF1NKm1rJld2ffz4PdhN2Z7cybXXqhn+Pvvff7fb+7b96b9wbmmefRRlUiyRY5Zv99veY5rdV6USQUtAMtQP1MlyngtsCQEga1ZZ25uKK/H9Wty61dloHO6yeWoZ3dwFsCrYbDR0TksGPZPWfbNo5E1RDJwLprpxcp0Z8KvAPEohafIQOq1xb98dl48q7pYGMDncOn3hTkK6DRdGwAYwhdP8Y3fWsyKLSBxMBAVe3CO/sQtdNcW3gEvp6eXLxnsKMjG6Z/KAOJ2321dff4TkS9Vp680JxO1cuWwSXJVFBHK6hDYmCgao7FA2ysnVI/rPn1WODzFWigduGdfWHFNzgxdjS30+CU+1wD8EpjVd2XQZ1mnUKd1/q2iajDYao1ODF2Nq2mwYkx4WY4OPYbE24mrNjSAkXeOB9PHi3ZXqrh5SvfN2Xs2FWgOajIg+LzVNDEuC0SL7XElpxCWTv2GSHENzrVvNu82jNtGpwY25tW8bhd9nRq1KhPSjX6Gnjp2umlM5tUIGmdY1rn/CuXMGeKKHau/b1vuV+brwEtuouQO+w97dJ79wp/Zad92/2mVwRiuOzya/AakG5LYJtJ9rkwYSn19hY5ZnvixYEXryeeB5aaFnjYJgRa/xyuSRTHPQa0VusjVeDhm1CWtaE45jGgFB2Rss8QZGJR1QIOLe/kmdom49wiEvwPCKw0zlxEKRNVyuLp6oUssqv5YsmzJOoCV+lCFPHikN8q1GKW1Z9iE3nxdZYDwAJl83lLh5kJ8WrzM1DvE4tE3sSkmy4QnyeCiceKA4EvcxUh4KVdJHpqPwNT0dMVUmc5bG9exeN2Nb+k/+Gedgva70uOD28PcDkV+iT5b3HAz8Adc6le8uKfrKoBICu6wEQE8aC82rzLKAxHFZ2nWHyevInRXJoPbv1kJh5AGCoOeZdRYcBQbwGlxOcZzd5nx43z/Dw9ZpxblFebdye2rDPGmWcIEl/uGcHW2qPNY+Diiv5+UDdNkz9s8cCNcysvDxYHvQ+x6tYi+ohJ5jkQD0od8buK9N0HHMvuAUJVmxPxkHa17vFr8DXw/12l6g2TudqyqbE8r+kAjLtpDtytwLlY8c2lePKWX1PJndjN2h8BgevcuJvmwKhX5ISboXfsCpO5sg/1Y7YWszMxwKU1r44j7AlTYSKX4eADv3Qlr1VEsWu2S9/Aq8W1wyf3K3gvTLFGp5rNTzzF8fE/KvHLI0p6LrQlu2brE/gy19KW2o1SJ8IUHHfTHBq9WhHxwClnpP79oE6hL3drp9RxYGPZskIhJ1P1bK3I5S7A4JJkKjW5+HVQ+8sXNzuipMe+Vb85jHiI8oFjqG+rKLWXELd2hoyKYveFtk3HTQYZH2jOx5NHY7lMuxL2AWnT8T6kUex1s067qXgo8yPfC0N9rTZ0KWVtA1lmWPomisOu1j2lNqlQWaIOLEC6rXXDiQ5lWRtEJIEijtBKwWdWNQIyLIoBW+sz51ZeHqzEZ9Z55nnU+Q/63Q62qOPEOgAAAABJRU5ErkJggg=="/></button>
+    </div>
+    <canvas id="cnv"></canvas>
+    <div class="alert">
+        <h1 id="alert_head">Unable to preview PDF?</h1>
+        <span id="alert_body">Rollback to iframe based preview</span>
+        <div>
+            <button id="roleback">Roleback</button>
+            <button id="close">No, I can see the PDF</button>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
+<script src="./js/script_pdf.js"></script>
+
+</html>

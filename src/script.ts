@@ -35,7 +35,7 @@ const apis = {
 apis.animationHandler(0)
 document.querySelector("#view_resume").addEventListener('click', () => {
 	apis.resume_url.then((e) => {
-		let DOMcontent = `<div class="dispathInfoBox"><div class="resourceRequested"><iframe src="${e}" width="100%" frameborder="0"></iframe></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
+		let DOMcontent = `<div class="dispathInfoBox"><div class="resourceRequested"><iframe src="/viewpdf?title=Resume&doclink=${e}" width="100%" frameborder="0"></iframe></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
 		document.querySelector(".sub").innerHTML = DOMcontent;
 	})
 })
@@ -109,7 +109,7 @@ apis.interships.then((e) => {
 				setTimeout(() => {
 					let x = ''
 					for (let i in dataStream) {
-						x += `<div class="col" data-intern-link="${dataStream[i]["file"]}"><img src="./resources/pdf_icon.png" alt="PDF Icon"><span>${dataStream[i]["name"]}</span></div>`
+						x += `<div class="col" data-intern-link="${dataStream[i]["file"]}" data-intern-name="${dataStream[i]["name"]}"><img src="./resources/pdf_icon.png" alt="PDF Icon"><span>${dataStream[i]["name"]}</span></div>`
 					}
 					let DOMcontent = `<div class="resourceRequested"><div><div class="files_serve"><div class="row">${x}</div></div></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div>`
 					document.querySelector(".dispathInfoBox").innerHTML = DOMcontent
@@ -124,7 +124,10 @@ apis.interships.then((e) => {
 							let x = e.currentTarget;
 							setTimeout(() => {
 								const file = (x as HTMLElement | null).getAttribute("data-intern-link")
-								document.querySelector(".resourceRequested").innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`
+								if (window.innerWidth < 720)
+									document.querySelector(".resourceRequested").innerHTML = `<div><iframe src="/viewpdf?doclink=${file}&title=${(x as HTMLElement | null).getAttribute("data-intern-name")}" width="100%" frameborder="0"></iframe></div>`
+								else
+									document.querySelector(".resourceRequested").innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`
 								dispathInfoBox.classList.remove("close_open")
 							}, 200)
 						})
@@ -193,6 +196,9 @@ new IntersectionObserver(function () {
 		document.querySelector("li.active").classList.remove("active")
 		element.classList.add("active")
 	}
+	if (document.querySelector(".main .active").classList.contains("active")) {
+		document.querySelector(".main .active").classList.remove("active")
+	}
 }, { threshold: [.6] }).observe(eventObserverElements.home);
 // Experience view
 new IntersectionObserver(function () {
@@ -200,9 +206,6 @@ new IntersectionObserver(function () {
 	if (!element.classList.contains("active")) {
 		document.querySelector("li.active").classList.remove("active")
 		element.classList.add("active")
-	}
-	if (document.querySelector(".main .active").classList.contains("active")) {
-		document.querySelector(".main .active").classList.remove("active")
 	}
 	eventObserverElements.experience.classList.add("active")
 }, { threshold: [.6] }).observe(eventObserverElements.experience);
@@ -213,9 +216,6 @@ new IntersectionObserver(function () {
 		document.querySelector("li.active").classList.remove("active")
 		element.classList.add("active")
 	}
-	if (document.querySelector(".main .active").classList.contains("active")) {
-		document.querySelector(".main .active").classList.remove("active")
-	}
 	eventObserverElements.education.classList.add("active")
 }, { threshold: [.6] }).observe(eventObserverElements.education);
 // Project view
@@ -224,9 +224,6 @@ new IntersectionObserver(function () {
 	if (!element.classList.contains("active")) {
 		document.querySelector("li.active").classList.remove("active")
 		element.classList.add("active")
-	}
-	if (document.querySelectorAll(".main .active").length != 0) {
-		document.querySelector(".main .active").classList.remove("active")
 	}
 	eventObserverElements.projects.classList.add("active")
 }, { threshold: [.6] }).observe(eventObserverElements.projects);

@@ -37,6 +37,20 @@ app.get("/", (req, res) => {
 	}
 });
 
+app.get("/viewpdf", (req, res) => {
+	logger.info(`${req.protocol} connection established by HOST:${req.headers["host"]}`);
+	try {
+		res.render("viewpdf");
+	} catch {
+		logger.error(`Server crashed. Failed to serve index page to HOST:${req.headers["host"]}`);
+		res.send(res.json({
+			"error": "500",
+			"type": "Internal Server Error",
+			"desc": "Index file crashed during rendering"
+		}))
+	}
+});
+
 app.post("/apis/internship", (req, res) => {
 	logger.info(`Access requested to get internship data`);
 	res.header("Content-Type", "application/json");
