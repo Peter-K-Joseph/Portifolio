@@ -7,9 +7,9 @@ const eventObserverElements = {
 	"education": document.querySelector("#education")
 }
 const apis = {
-	"interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json() }), 
-	"projects": fetch("/apis/projects", { method: "post" }).then(data => {return data.json()} ),
-	"text": fetch("./apis/texts", {method: "post"}).then((data) => { return data.json() }),
+	"interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json() }),
+	"projects": fetch("/apis/projects", { method: "post" }).then(data => { return data.json() }),
+	"text": fetch("./apis/texts", { method: "post" }).then((data) => { return data.json() }),
 	"resume_url": fetch("./apis/resume", { method: "post" }).then((data) => { return data.json() }),
 	"dispatch_viewBarClose": () => {
 		let dispathInfoBox = document.querySelector(".dispathInfoBox");
@@ -35,7 +35,11 @@ const apis = {
 apis.animationHandler(0)
 document.querySelector("#view_resume").addEventListener('click', () => {
 	apis.resume_url.then((e) => {
-		let DOMcontent = `<div class="dispathInfoBox"><div class="resourceRequested"><iframe src="/viewpdf?title=Resume&doclink=${e}" width="100%" frameborder="0"></iframe></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
+		let DOMcontent
+		if (window.innerWidth < 720)
+			DOMcontent = `<div class="dispathInfoBox"><div class="resourceRequested"><div><iframe src="/viewpdf?title=Peter's Resume&doclink=${e}" width="100%" frameborder="0"></iframe></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
+		else
+			DOMcontent = `<div class="dispathInfoBox"><div class="resourceRequested"><div><iframe src="${e}" width="100%" frameborder="0"></iframe></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
 		document.querySelector(".sub").innerHTML = DOMcontent;
 	})
 })
@@ -64,11 +68,11 @@ async function typeSentence(e, data) {
 		i++
 	}
 	setTimeout(() => { (intro_text[1] as HTMLElement | null).style.opacity = "0"; }, 4500)
-	setTimeout(() => { typeSentence((e == prof.length - 1) ? 0 : e + 1, data)}, 5000)
+	setTimeout(() => { typeSentence((e == prof.length - 1) ? 0 : e + 1, data) }, 5000)
 	return;
 }
 
-apis.text.then((data) => {typeSentence(0, data);}).catch(() => {
+apis.text.then((data) => { typeSentence(0, data); }).catch(() => {
 	console.error("[TEXT] TextWrite Module Error. apis.text did not succeed")
 })
 
@@ -97,11 +101,11 @@ apis.interships.then((e) => {
 				}
 				return main.innerHTML
 			}
-			let DOMcontent = `<div class="dispathInfoBox"><div class="internship"><div class="row"><div class="col"><img src="${curr_selection.image}" ${(curr_selection.bg == "dark") ? 'class="dark"' : ''} alt="${curr_selection.company.full}" srcset=""></div><div class="col"><h2 class="role">${curr_selection.role}</h2><h3 data-tooltip="${curr_selection.about}">${curr_selection.company.full} <span class="duration">${curr_selection.duration}</span></h3><span class="info"><div><h4>Experience</h4>${getKeyPoints()}</div></span><div>${(curr_selection.files.length == 0) ? "" : `<button class="getInternshipCompletionLetter" id="getInternshipCompletionLetter" data-id="${(e.target as HTMLElement | null).getAttribute("data-id")}">View Related Files</button>`}</div></div></div><span class="disclaimer">*Offer letter and other project details may be hidden due to legal reasons</span></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`		
+			let DOMcontent = `<div class="dispathInfoBox"><div class="internship"><div class="row"><div class="col"><img src="${curr_selection.image}" ${(curr_selection.bg == "dark") ? 'class="dark"' : ''} alt="${curr_selection.company.full}" srcset=""></div><div class="col"><h2 class="role">${curr_selection.role}</h2><h3 data-tooltip="${curr_selection.about}">${curr_selection.company.full} <span class="duration">${curr_selection.duration}</span></h3><span class="info"><div><h4>Experience</h4>${getKeyPoints()}</div></span><div>${(curr_selection.files.length == 0) ? "" : `<button class="getInternshipCompletionLetter" id="getInternshipCompletionLetter" data-id="${(e.target as HTMLElement | null).getAttribute("data-id")}">View Related Files</button>`}</div></div></div><span class="disclaimer">*Offer letter and other project details may be hidden due to legal reasons</span></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
 			document.querySelector(".sub").innerHTML = DOMcontent;
 			if (curr_selection.files.length == 0) return;
 			const internshipDataButton = document.querySelector("#getInternshipCompletionLetter")
-			internshipDataButton.removeEventListener("click", () => {})
+			internshipDataButton.removeEventListener("click", () => { })
 			internshipDataButton.addEventListener("click", (e) => {
 				const dataStream = interData[(e.target as HTMLElement | null).getAttribute("data-id")].files
 				let dispathInfoBox = document.querySelector(".dispathInfoBox");
@@ -116,7 +120,7 @@ apis.interships.then((e) => {
 					dispathInfoBox.classList.remove("close_open")
 					const dataInterLink = document.querySelectorAll("[data-intern-link]")
 					dataInterLink.forEach((e) => {
-						e.removeEventListener("click", () => {})
+						e.removeEventListener("click", () => { })
 					})
 					dataInterLink.forEach((e) => {
 						e.addEventListener("click", (e) => {
@@ -142,16 +146,16 @@ apis.projects.then((e) => {
 	const target = document.querySelector("#my_projects");
 	const appendHTML = (title, lang, comp, desc) => {
 		const compoundSelectHTML = (mode) => {
-			let stream = ((mode == 0)? lang: comp)
+			let stream = ((mode == 0) ? lang : comp)
 			let data = '';
-			if (mode == 0) for (let i = 0 ; i < stream.length; i++) data = data + `<span class="framework">${stream[i]}</span>`
-			else return (stream != null)?`<span class="colab">${stream}</span>`: ''
+			if (mode == 0) for (let i = 0; i < stream.length; i++) data = data + `<span class="framework">${stream[i]}</span>`
+			else return (stream != null) ? `<span class="colab">${stream}</span>` : ''
 			return data
 		}
-		target.innerHTML = target.innerHTML +  `<div class="project"><h4><span>${title}</span><div class="frameworks">${compoundSelectHTML(0)}${compoundSelectHTML(1)}</div></h4><div class="contain"><div class="desc">${desc}</div></div></div>`
+		target.innerHTML = target.innerHTML + `<div class="project"><h4><span>${title}</span><div class="frameworks">${compoundSelectHTML(0)}${compoundSelectHTML(1)}</div></h4><div class="contain"><div class="desc">${desc}</div></div></div>`
 	}
 
-	for (let i = 0 ; i < e.length; i++) appendHTML(e[i].name, e[i].frameworks, e[i].organisation, e[i].desc)
+	for (let i = 0; i < e.length; i++) appendHTML(e[i].name, e[i].frameworks, e[i].organisation, e[i].desc)
 })
 
 // Animation and Transition
@@ -230,7 +234,7 @@ new IntersectionObserver(function () {
 // Scroll View observer for elements
 document.querySelector(".main").addEventListener("scroll", () => {
 	const rendererOnView = () => {
-		return ((document.querySelector(".main").scrollTop - (document.querySelector("#projects") as HTMLElement | null).offsetTop) / document.querySelector("#projects").scrollHeight ) * 1.8 * 100;
+		return ((document.querySelector(".main").scrollTop - (document.querySelector("#projects") as HTMLElement | null).offsetTop) / document.querySelector("#projects").scrollHeight) * 1.8 * 100;
 	}
 	const ctx = rendererOnView();
 	if (ctx < 120 && ctx > -20) {
@@ -241,11 +245,11 @@ document.querySelector(".main").addEventListener("scroll", () => {
 				document.querySelector("li.active").classList.remove("active")
 				element.classList.add("active")
 			}
-			element = eventObserverElements.projects 
+			element = eventObserverElements.projects
 			if (!element.classList.contains("active")) element.classList.add("active")
 		}
 		(document.querySelector(".scrollbit") as HTMLElement | null).style.height = `${(ctx)}vh`;
-	} 
+	}
 	else if ((ctx > 120 || ctx < -20) && !document.querySelector(".scrollbit").classList.contains("hide")) {
 		document.querySelector(".scrollbit").classList.add("hide")
 	}

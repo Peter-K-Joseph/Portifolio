@@ -35,7 +35,11 @@ const apis = {
 apis.animationHandler(0);
 document.querySelector("#view_resume").addEventListener('click', () => {
     apis.resume_url.then((e) => {
-        let DOMcontent = `<div class="dispathInfoBox"><div class="resourceRequested"><iframe src="/viewpdf?title=Resume&doclink=${e}" width="100%" frameborder="0"></iframe></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`;
+        let DOMcontent;
+        if (window.innerWidth < 720)
+            DOMcontent = `<div class="dispathInfoBox"><div class="resourceRequested"><div><iframe src="/viewpdf?title=Peter's Resume&doclink=${e}" width="100%" frameborder="0"></iframe></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`;
+        else
+            DOMcontent = `<div class="dispathInfoBox"><div class="resourceRequested"><div><iframe src="${e}" width="100%" frameborder="0"></iframe></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`;
         document.querySelector(".sub").innerHTML = DOMcontent;
     });
 });
