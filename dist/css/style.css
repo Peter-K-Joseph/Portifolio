@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Roboto:wght@300;400;500&family=Source+Sans+Pro:wght@700&display=swap&family=Quicksand:wght@400;500;600&display=swap");
+@font-face {
+  font-family: RoxaleStoryItalic;
+  src: url(../resources/fonts/RoxaleStoryItalic.otf);
+}
+@font-face {
+  font-family: RoxaleStory;
+  src: url(../resources/fonts/RoxaleStory.otf);
+}
 :root {
   --grey-50: #F9FAFB;
   --grey-100: #F3F4F6;
@@ -446,6 +454,89 @@ body {
     opacity: 1;
   }
 }
+.main #education > h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--grey-100);
+  font-family: "Source Sans Pro", sans-serif;
+}
+.main #education .education_data {
+  width: 80%;
+  margin: 10px auto;
+}
+.main #education .education_data .ins_data {
+  display: flex;
+}
+.main #education .education_data .ins_data img {
+  width: 150px;
+  justify-content: space-between;
+}
+.main #education .education_data .institute {
+  background-color: var(--grey-50);
+  background-image: linear-gradient(62deg, rgb(200, 231, 255) 0%, rgb(242, 228, 255) 100%);
+  padding: 10px 20px;
+  margin: 20px auto;
+  border-radius: 0.3rem;
+}
+.main #education .education_data .institute .exam {
+  border-left: solid var(--grey-800) 2px;
+  padding: 0 0 40px 0;
+  margin: 0;
+}
+.main #education .education_data .institute .exam .score .slider {
+  width: 85%;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.main #education .education_data .institute .exam .score .slider .represent {
+  width: 50%;
+  padding: 2px;
+  background-color: #FBAB7E;
+  background-image: -webkit-linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+  background-image: -moz-linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+  background-image: -o-linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+.main #education .education_data .institute .exam .score .slider .represent::after {
+  content: "50%";
+  text-align: end;
+  display: inherit;
+  width: 99%;
+}
+.main #education .education_data .institute .exam .score .info {
+  width: 100%;
+  text-align: center;
+}
+.main #education .education_data .institute .exam .score .scoreboard {
+  width: 85%;
+  color: var(--grey-500);
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.main #education .education_data .institute .exam * {
+  font-family: "Roboto", sans-serif;
+}
+.main #education .education_data .institute .exam h3 {
+  margin-top: 0;
+  background-color: var(--grey-800);
+  color: white;
+  width: max-content;
+  padding: 5px 20px 5px 30px;
+  border-radius: 0 0.3rem 0.3rem 0;
+  font-size: 1.2rem;
+}
+.main #education .education_data .institute h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: "Roboto", sans-serif;
+}
+.main #education .edu {
+  font-family: RoxaleStory;
+}
 .main #projects .render h3 {
   font-family: "Manrope", sans-serif;
   width: 100%;
@@ -457,7 +548,7 @@ body {
 .main #projects .render .components {
   display: flex;
   align-items: center;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -874,6 +965,7 @@ body {
   font-weight: 300;
   font-size: 0.9rem;
 }
+
 nav {
   display: flex;
   align-items: center;

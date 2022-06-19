@@ -6,6 +6,7 @@ const eventObserverElements = {
 	"main": document.querySelector(".main"),
 	"education": document.querySelector("#education")
 }
+
 const apis = {
 	"interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json() }),
 	"projects": fetch("/apis/projects", { method: "post" }).then(data => { return data.json() }),
@@ -32,6 +33,7 @@ const apis = {
 		document.querySelector(`#${e}`).classList.add("active")
 	}
 }
+
 apis.animationHandler(0)
 document.querySelector("#view_resume").addEventListener('click', () => {
 	apis.resume_url.then((e) => {
@@ -43,6 +45,7 @@ document.querySelector("#view_resume").addEventListener('click', () => {
 		document.querySelector(".sub").innerHTML = DOMcontent;
 	})
 })
+
 eventObserverElements.navbar.forEach(element => {
 	element.addEventListener("click", (e) => {
 		if (document.querySelector("#closeEventButton") != null)
