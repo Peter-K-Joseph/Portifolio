@@ -163,5 +163,62 @@
         "frameworks": ["HTML", "CSS", "JavaScript"],
         "organisation": "NewsGram",
         "desc": "A frontent project for a quiz user dashboard that can view and manage quizzes, start and stop quizzes and create quiz. <a href=\"https://peter-k-joseph.github.io/ClassQuiz-User-Dashboard/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view theme</a>"
+    }], 
+    "education": [{
+        "name": "Rajagiri Higher Secondary School",
+        "img": "./resources/edu_rajagiri.png",
+        "results": [{
+            "name": "SSLC",
+            "desc": "<div class='board'>Board: <span class='data'>SCERT (The State Council of Educational Research and Training)</span></div><div class='board'>Syllabus: <span class='data'>Class 10</span></div>",
+            "marks": {
+                "min": "0%",
+                "max": "100%",
+                "got": "97.80%"
+            }
+        }, {
+            "name": "DHSE",
+            "desc": "<div class='board'>Board: <span class='data'>DHSE (Directorate of Higher Secondary Education)</span></div><div class='board'>Syllabus: <span class='data'>Class 12 (Physics, Chemistry, Maths, Computer Science)</span></div>",
+            "marks": {
+                "min": "0%",
+                "max": "100%",
+                "got": "80.75%"
+            }
+        }]
+    }, {
+        "name": "CHRIST (Deemed To Be) University",
+        "img": "./resources/edu_christ.png",
+        "results": [{
+            "name": "Semester 1",
+            "desc": null,
+            "marks": {
+                "min": "0.00 GPA",
+                "max": "4.00 GPA",
+                "got": "3.78 GPA"
+            }
+        }, {
+            "name": "Semester 2",
+            "desc": null,
+            "marks": {
+                "min": "0.00 GPA",
+                "max": "4.00 GPA",
+                "got": "3.75 GPA"
+            }
+        }, {
+            "name": "Semester 3",
+            "desc": null,
+            "marks": {
+                "min": "0.00 GPA",
+                "max": "4.00 GPA",
+                "got": "3.46 GPA"
+            }
+        }, {
+            "name": "Semester 4",
+            "desc": null,
+            "marks": {
+                "min": "0.00 GPA",
+                "max": "4.00 GPA",
+                "got": "3.31 GPA"
+            }
+        }]
     }]
 }

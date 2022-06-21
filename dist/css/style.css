@@ -467,9 +467,10 @@ body {
 }
 .main #education .education_data .ins_data {
   display: flex;
+  justify-content: space-between;
 }
 .main #education .education_data .ins_data img {
-  width: 150px;
+  height: 50px;
   justify-content: space-between;
 }
 .main #education .education_data .institute {
@@ -492,7 +493,7 @@ body {
   overflow: hidden;
 }
 .main #education .education_data .institute .exam .score .slider .represent {
-  width: 50%;
+  width: attr(data-mark);
   padding: 2px;
   background-color: #FBAB7E;
   background-image: -webkit-linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
@@ -501,7 +502,7 @@ body {
   background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
 }
 .main #education .education_data .institute .exam .score .slider .represent::after {
-  content: "50%";
+  content: attr(data-represent);
   text-align: end;
   display: inherit;
   width: 99%;
@@ -531,7 +532,7 @@ body {
 }
 .main #education .education_data .institute h1 {
   font-size: 1.6rem;
-  font-weight: 800;
+  font-weight: 500;
   font-family: "Roboto", sans-serif;
 }
 .main #education .edu {
