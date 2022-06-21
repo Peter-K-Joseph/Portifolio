@@ -224,7 +224,7 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 	eventObserverElements.education.classList.add("active")
-}, { threshold: [.6] }).observe(eventObserverElements.education);
+}, { threshold: [.5] }).observe(eventObserverElements.education);
 // Project view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-project]")
