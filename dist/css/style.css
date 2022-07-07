@@ -468,6 +468,7 @@ body {
 .main #education .education_data .ins_data {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .main #education .education_data .ins_data img {
   height: 50px;
@@ -484,6 +485,15 @@ body {
   border-left: solid var(--grey-800) 2px;
   padding: 0 0 40px 0;
   margin: 0;
+}
+.main #education .education_data .institute .exam:last-child {
+  border-radius: 0 0 0.2rem 0.2rem;
+}
+.main #education .education_data .institute .exam:first-child {
+  border-radius: 0.2rem 0 0 0;
+}
+.main #education .education_data .institute .exam .edu {
+  font-weight: 300;
 }
 .main #education .education_data .institute .exam .score .slider {
   width: 85%;

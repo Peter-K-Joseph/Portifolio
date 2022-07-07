@@ -182,8 +182,6 @@ eventObserverElements.main.addEventListener("scroll", (e) => {
 	}).observe(document.querySelector("#home"))
 }, { passive: true })
 
-
-
 // Intersection Observers for individual views
 // >> Experience
 new IntersectionObserver(() => {
