@@ -31,7 +31,10 @@
             "projects": [],
             "duration": "In Progress",
             "image": "./resources/company_iic.png",
-            "keypoints": [],
+            "keypoints": [
+                "Worked with Angular",
+                "Creates a single thread application, a simple Grocery List Application"
+            ],
             "about": "The Institute Industry Interaction Cell (IIIC) at CHRIST (Deemed to be University) contributes to its programs and partnership with industry."
         }, {
             "role": "Tech Tank Volunteer",
@@ -142,7 +145,7 @@
         "name": "LightALamp: Online Inaguration System",
         "frameworks": ["HTML","SCSS","JavaScript","JQuery", "PHP","MySQL"],
         "organisation": null,
-        "desc": "A webapp used to control and montitor home applicances. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/frontent/\">Click here to view project theme</a> or <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/nuvie%20HomeLink%20PWA/dist/\">Click here to view mobile PWA theme</a>"
+        "desc": "A webpage used to represent light a lamp for online events signifying the Indian Culture. Guests can virtually light the lamp by clicking in 'light the lamp' button from a specified link."
     }, {
         "name": "Nia Aurora",
         "frameworks": ["Python"],
