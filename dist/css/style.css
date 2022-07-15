@@ -1103,6 +1103,7 @@ nav ul li.active {
 
   .dispathInfoBox {
     width: 100vw;
+    z-index: 10;
     border-radius: 0;
   }
   .dispathInfoBox .goback {
