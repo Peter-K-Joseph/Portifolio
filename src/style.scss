@@ -1236,7 +1236,6 @@ nav {
         max-height: calc(100vh - var(--offset-mobile-tab));
 
         .main {
-
             #projects .render .components {
                 .project {
                     height: auto;
@@ -1303,8 +1302,14 @@ nav {
         }
 
         nav {
-            overflow: auto;
-            height: 80%;
+            overflow: auto hidden;
+            height: 10%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 5;
+            background: linear-gradient(0deg, rgba(12, 12, 12, 0.97) 50%, rgba(0, 0, 0, 0));
 
             ul {
                 display: flex;
