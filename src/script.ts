@@ -6,6 +6,7 @@ const eventObserverElements = {
 	"main": document.querySelector(".main"),
 	"education": document.querySelector("#education")
 }
+
 const apis = {
 	"interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json() }),
 	"projects": fetch("/apis/projects", { method: "post" }).then(data => { return data.json() }),
@@ -32,6 +33,7 @@ const apis = {
 		document.querySelector(`#${e}`).classList.add("active")
 	}
 }
+
 apis.animationHandler(0)
 document.querySelector("#view_resume").addEventListener('click', () => {
 	apis.resume_url.then((e) => {
@@ -43,6 +45,7 @@ document.querySelector("#view_resume").addEventListener('click', () => {
 		document.querySelector(".sub").innerHTML = DOMcontent;
 	})
 })
+
 eventObserverElements.navbar.forEach(element => {
 	element.addEventListener("click", (e) => {
 		if (document.querySelector("#closeEventButton") != null)
@@ -179,8 +182,6 @@ eventObserverElements.main.addEventListener("scroll", (e) => {
 	}).observe(document.querySelector("#home"))
 }, { passive: true })
 
-
-
 // Intersection Observers for individual views
 // >> Experience
 new IntersectionObserver(() => {
@@ -221,7 +222,7 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 	eventObserverElements.education.classList.add("active")
-}, { threshold: [.6] }).observe(eventObserverElements.education);
+}, { threshold: [.2, .6] }).observe(eventObserverElements.education);
 // Project view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-project]")
@@ -230,7 +231,7 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 	eventObserverElements.projects.classList.add("active")
-}, { threshold: [.6] }).observe(eventObserverElements.projects);
+}, { threshold: [.6, .3] }).observe(eventObserverElements.projects);
 // Scroll View observer for elements
 document.querySelector(".main").addEventListener("scroll", () => {
 	const rendererOnView = () => {
