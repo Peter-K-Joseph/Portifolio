@@ -458,7 +458,7 @@ body {
   width: 100%;
   text-align: center;
   font-size: 2.5rem;
-  color: var(--grey-100);
+  color: #e0d5c0;
   font-family: "Source Sans Pro", sans-serif;
 }
 .main #education .education_data {
@@ -553,7 +553,7 @@ body {
   width: 100%;
   font-weight: 800;
   font-size: 2rem;
-  color: var(--white);
+  color: #e0d5c0;
   text-align: center;
 }
 .main #projects .render .components {
@@ -724,7 +724,7 @@ body {
 .main #experience h1 {
   padding: 30px 0;
   font-weight: 800;
-  color: white;
+  color: #e0d5c0;
   font-family: "Manrope", sans-serif;
 }
 .main #home {
@@ -812,7 +812,7 @@ body {
   padding: 5px 30px;
   margin: 13px 0;
   border-radius: 1rem;
-  background: white;
+  background: #e0d5c0;
   font-weight: 500;
   font-family: system-ui;
   font-size: 1rem;
@@ -908,7 +908,7 @@ body {
   }
 }
 .loader .load {
-  background-color: var(--white);
+  background-color: #e0d5c0;
   padding: 0;
   border-radius: 50%;
   animation: loading 1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
@@ -1005,7 +1005,7 @@ nav ul:hover {
 }
 nav ul a {
   text-decoration: none !important;
-  color: whitesmoke;
+  color: #e0d5c0;
 }
 nav ul li {
   font-size: 1.5rem;
@@ -1056,6 +1056,7 @@ nav ul li.active {
   }
   body .main #experience h1 {
     text-align: center;
+    color: #e0d5c0;
   }
   body .main #experience div > .content-box .companies .company img {
     height: auto;

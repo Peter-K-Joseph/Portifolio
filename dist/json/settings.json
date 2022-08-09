@@ -8,7 +8,10 @@
             },
             "bg": "light",
             "duration": "3 Months",
-            "files": [],
+            "files": [{
+                "name": "Internship Completion Letter",
+                "file": "/resources/files/fxii_1.pdf"
+            }],
             "image": "./resources/company_fxii.png",
             "projects": ["AWS Site Creation using EC2 and other tools"],
             "keypoints": [

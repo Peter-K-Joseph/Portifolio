@@ -193,7 +193,7 @@ new IntersectionObserver(() => {
 	if (!element.classList.contains("active")) {
 		element.classList.add("active")
 	}
-}, { threshold: [.3, .7, 1] }).observe(eventObserverElements.experience);
+}, { threshold: [.1] }).observe(eventObserverElements.experience);
 // >> Home view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-home]")
