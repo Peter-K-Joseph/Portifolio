@@ -1,6 +1,17 @@
 // IMPORTS
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Roboto:wght@300;400;500&family=Source+Sans+Pro:wght@700&display=swap&family=Quicksand:wght@400;500;600&display=swap');
 
+@font-face {
+    font-family: RoxaleStoryItalic;
+    src: url(../resources/fonts/RoxaleStoryItalic.otf);
+}
+
+@font-face {
+    font-family: RoxaleStory;
+    src: url(../resources/fonts/RoxaleStory.otf);
+}
+
+
 :root {
     //Shades of grey
     --grey-50: #F9FAFB;
@@ -525,10 +536,127 @@ body {
         }
     }
 
+    #education {
+        >h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--grey-100);
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .education_data {
+            width: 80%;
+            margin: 10px auto;
+
+            .ins_data {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                img {
+                    height: 50px;
+                    justify-content: space-between;
+                }
+            }
+
+            .institute {
+                background-color: var(--grey-50);
+                background-image: linear-gradient(62deg, rgb(200, 231, 255) 0%, rgb(242, 228, 255) 100%);
+                padding: 10px 20px;
+                margin: 20px auto;
+                border-radius: .3rem;
+
+                .exam {
+                    border-left: solid var(--grey-800) 2px;
+                    padding: 0 0 40px 0;
+                    margin: 0;
+
+                    &:last-child {
+                        border-radius: 0 0 .2rem .2rem;
+                    }
+
+                    &:first-child {
+                        border-radius: .2rem 0 0 0;
+                    }
+
+                    .edu {
+                        font-weight: 300;
+                    }
+
+                    .score {
+                        .slider {
+                            width: 85%;
+                            background-color: white;
+                            margin: 0 auto;
+                            border-radius: 1rem;
+                            overflow: hidden;
+
+                            .represent {
+                                width: attr(data-mark);
+                                padding: 2px;
+                                background-color: #FBAB7E;
+                                background-image: -webkit-linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+                                background-image: -moz-linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+                                background-image: -o-linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+                                background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+                                &::after {
+                                    content: attr(data-represent);
+                                    text-align: end;
+                                    display: inherit;
+                                    width: 99%;
+                                }
+                            }
+                        }
+
+                        .info {
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        .scoreboard {
+                            width: 85%;
+                            color: var(--grey-500);
+                            margin: 5px auto;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+
+                    * {
+                        font-family: 'Roboto', sans-serif;
+                    }
+
+                    h3 {
+                        margin-top: 0;
+                        background-color: var(--grey-800);
+                        color: white;
+                        width: max-content;
+                        padding: 5px 20px 5px 30px;
+                        border-radius: 0 .3rem .3rem 0;
+                        font-size: 1.2rem;
+                        ;
+                    }
+                }
+
+                h1 {
+                    font-size: 1.6rem;
+                    font-weight: 500;
+                    font-family: 'Roboto', sans-serif;
+                }
+            }
+        }
+
+        .edu {
+            font-family: RoxaleStory;
+        }
+    }
+
     #projects {
-        
+
         .render {
-            
+
             h3 {
                 font-family: "Manrope", sans-serif;
                 width: 100%;
@@ -541,7 +669,7 @@ body {
             .components {
                 display: flex;
                 align-items: center;
-                margin-bottom: 200px;
+                margin-bottom: 50px;
                 justify-content: center;
                 flex-wrap: wrap;
             }
@@ -584,13 +712,13 @@ body {
                             font-weight: 300;
                             padding: 5px 5px;
                             margin: 0 3px;
-                            
+
                             &.framework {
                                 -webkit-text-fill-color: #cc0f35;
                                 background-color: #feecf0;
                                 color: #cc0f35;
                             }
-    
+
                             &.colab {
                                 -webkit-text-fill-color: var(--indigo-700);
                                 background-color: var(--indigo-100);
@@ -1033,8 +1161,6 @@ body {
                 font-size: .9rem;
             }
         }
-
-        &:nth-child(2) {}
     }
 }
 
@@ -1095,14 +1221,14 @@ nav {
 }
 
 @media only screen and (max-width: 720px) {
-    
+
     .loader {
         width: 100vw;
         max-width: 100vw;
         height: 100vh;
         max-height: 100vh;
     }
-    
+
     body {
         flex-direction: column-reverse;
         --offset-mobile-tab: 50px;
@@ -1110,9 +1236,8 @@ nav {
         max-height: calc(100vh - var(--offset-mobile-tab));
 
         .main {
-            
             #projects .render .components {
-                .project{ 
+                .project {
                     height: auto;
 
                     h4 {
@@ -1137,7 +1262,7 @@ nav {
                     text-align: center;
                 }
 
-                div > .content-box .companies .company img {
+                div>.content-box .companies .company img {
                     height: auto;
                     width: 50%;
                 }
@@ -1154,7 +1279,7 @@ nav {
                             width: 90%;
                             height: 40vh;
                         }
-                    } 
+                    }
 
                     &:nth-child(2) {
                         margin: 0 30px;
@@ -1177,8 +1302,14 @@ nav {
         }
 
         nav {
-            overflow: auto;
-            height: 80%;
+            overflow: auto hidden;
+            height: 10%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 5;
+            background: linear-gradient(0deg, rgba(12, 12, 12, 0.97) 50%, rgba(0, 0, 0, 0));
 
             ul {
                 display: flex;
@@ -1195,10 +1326,11 @@ nav {
 
     .dispathInfoBox {
         width: 100vw;
+        z-index: 10;
         border-radius: 0;
 
         .goback {
-            transform: rotate(-90deg) translate(-50% ,150%) !important;
+            transform: rotate(-90deg) translate(-50%, 150%) !important;
             top: 0;
         }
 

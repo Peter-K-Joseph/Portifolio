@@ -31,7 +31,10 @@
             "projects": [],
             "duration": "In Progress",
             "image": "./resources/company_iic.png",
-            "keypoints": [],
+            "keypoints": [
+                "Worked with Angular",
+                "Creates a single thread application, a simple Grocery List Application"
+            ],
             "about": "The Institute Industry Interaction Cell (IIIC) at CHRIST (Deemed to be University) contributes to its programs and partnership with industry."
         }, {
             "role": "Tech Tank Volunteer",
@@ -142,7 +145,7 @@
         "name": "LightALamp: Online Inaguration System",
         "frameworks": ["HTML","SCSS","JavaScript","JQuery", "PHP","MySQL"],
         "organisation": null,
-        "desc": "A webapp used to control and montitor home applicances. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/frontent/\">Click here to view project theme</a> or <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/nuvie%20HomeLink%20PWA/dist/\">Click here to view mobile PWA theme</a>"
+        "desc": "A webpage used to represent light a lamp for online events signifying the Indian Culture. Guests can virtually light the lamp by clicking in 'light the lamp' button from a specified link."
     }, {
         "name": "Nia Aurora",
         "frameworks": ["Python"],
@@ -163,5 +166,62 @@
         "frameworks": ["HTML", "CSS", "JavaScript"],
         "organisation": "NewsGram",
         "desc": "A frontent project for a quiz user dashboard that can view and manage quizzes, start and stop quizzes and create quiz. <a href=\"https://peter-k-joseph.github.io/ClassQuiz-User-Dashboard/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view theme</a>"
+    }], 
+    "education": [{
+        "name": "Rajagiri Higher Secondary School",
+        "img": "./resources/edu_rajagiri.png",
+        "results": [{
+            "name": "SSLC",
+            "desc": "<div class='board'>Board: <span class='data'>SCERT (The State Council of Educational Research and Training)</span></div><div class='board'>Syllabus: <span class='data'>Class 10</span></div>",
+            "marks": {
+                "min": "0%",
+                "max": "100%",
+                "got": "97.80%"
+            }
+        }, {
+            "name": "DHSE",
+            "desc": "<div class='board'>Board: <span class='data'>DHSE (Directorate of Higher Secondary Education)</span></div><div class='board'>Syllabus: <span class='data'>Class 12 (Physics, Chemistry, Maths, Computer Science)</span></div>",
+            "marks": {
+                "min": "0%",
+                "max": "100%",
+                "got": "80.75%"
+            }
+        }]
+    }, {
+        "name": "CHRIST (Deemed To Be) University",
+        "img": "./resources/edu_christ.png",
+        "results": [{
+            "name": "Semester 1",
+            "desc": null,
+            "marks": {
+                "min": "0.00 GPA",
+                "max": "4.00 GPA",
+                "got": "3.78 GPA"
+            }
+        }, {
+            "name": "Semester 2",
+            "desc": null,
+            "marks": {
+                "min": "0.00 GPA",
+                "max": "4.00 GPA",
+                "got": "3.75 GPA"
+            }
+        }, {
+            "name": "Semester 3",
+            "desc": null,
+            "marks": {
+                "min": "0.00 GPA",
+                "max": "4.00 GPA",
+                "got": "3.46 GPA"
+            }
+        }, {
+            "name": "Semester 4",
+            "desc": null,
+            "marks": {
+                "min": "0.00 GPA",
+                "max": "4.00 GPA",
+                "got": "3.31 GPA"
+            }
+        }]
     }]
 }
