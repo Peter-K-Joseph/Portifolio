@@ -475,11 +475,16 @@ body {
   justify-content: space-between;
 }
 .main #education .education_data .institute {
-  background-color: var(--grey-50);
-  background-image: linear-gradient(62deg, rgb(200, 231, 255) 0%, rgb(242, 228, 255) 100%);
+  background-color: #DDC4DD;
+  background-image: linear-gradient(62deg, #f0efeb 0%, #DDC4DD 100%);
   padding: 10px 20px;
-  margin: 20px auto;
-  border-radius: 0.3rem;
+  margin: 40px auto;
+  border-radius: 0.5rem;
+  transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  box-shadow: 5px 5px #DCCFEC, 10px 10px #A997DF, 15px 15px #4F517D;
+}
+.main #education .education_data .institute:hover {
+  box-shadow: 0px 0px #DCCFEC, 0px 0px #A997DF, 0px 0px #4F517D;
 }
 .main #education .education_data .institute .exam {
   border-left: solid var(--grey-800) 2px;
@@ -544,6 +549,7 @@ body {
   font-size: 1.6rem;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
+  color: #343a40;
 }
 .main #education .edu {
   font-family: RoxaleStory;
@@ -1104,7 +1110,7 @@ nav ul li.active {
 
   .dispathInfoBox {
     width: 100vw;
-    z-index: 10;
+    z-index: 1000;
     border-radius: 0;
   }
   .dispathInfoBox .goback {

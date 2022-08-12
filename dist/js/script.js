@@ -189,7 +189,7 @@ new IntersectionObserver(() => {
     if (!element.classList.contains("active")) {
         element.classList.add("active");
     }
-}, { threshold: [.1] }).observe(eventObserverElements.experience);
+}, { threshold: [.4] }).observe(eventObserverElements.experience);
 // >> Home view
 new IntersectionObserver(function () {
     let element = document.querySelector("[alias-home]");
@@ -227,7 +227,7 @@ new IntersectionObserver(function () {
         element.classList.add("active");
     }
     eventObserverElements.projects.classList.add("active");
-}, { threshold: [.6, .3] }).observe(eventObserverElements.projects);
+}, { threshold: [.2] }).observe(eventObserverElements.projects);
 // Scroll View observer for elements
 document.querySelector(".main").addEventListener("scroll", () => {
     const rendererOnView = () => {
