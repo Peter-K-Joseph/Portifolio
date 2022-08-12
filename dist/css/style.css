@@ -391,6 +391,7 @@ body {
 
 .sub {
   position: fixed;
+  z-index: 6;
 }
 
 .main {
@@ -484,6 +485,7 @@ body {
   box-shadow: 5px 5px #DCCFEC, 10px 10px #A997DF, 15px 15px #4F517D;
 }
 .main #education .education_data .institute:hover {
+  transform: scale(1.05) translate(5px, 5px);
   box-shadow: 0px 0px #DCCFEC, 0px 0px #A997DF, 0px 0px #4F517D;
 }
 .main #education .education_data .institute .exam {
@@ -525,6 +527,7 @@ body {
 .main #education .education_data .institute .exam .score .info {
   width: 100%;
   text-align: center;
+  color: #424B54;
 }
 .main #education .education_data .institute .exam .score .scoreboard {
   width: 85%;
@@ -1044,6 +1047,9 @@ nav ul li.active {
     --offset-mobile-tab: 50px;
     min-height: calc(100vh - var(--offset-mobile-tab));
     max-height: calc(100vh - var(--offset-mobile-tab));
+  }
+  body .education_data {
+    width: 90% !important;
   }
   body .main #projects .render .components .project {
     height: auto;

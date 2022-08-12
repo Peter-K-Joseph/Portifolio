@@ -461,6 +461,7 @@ body {
 
 .sub {
     position: fixed;
+    z-index: 6;
 }
 
 .main {
@@ -570,6 +571,7 @@ body {
                 box-shadow: 5px 5px #DCCFEC, 10px 10px #A997DF, 15px 15px #4F517D;
                 
                 &:hover {
+                    transform: scale(1.05) translate(5px, 5px);
                     box-shadow: 0px 0px #DCCFEC, 0px 0px #A997DF, 0px 0px #4F517D;
                 }
 
@@ -619,6 +621,7 @@ body {
                         .info {
                             width: 100%;
                             text-align: center;
+                            color: #424B54;
                         }
 
                         .scoreboard {
@@ -1241,6 +1244,10 @@ nav {
         --offset-mobile-tab: 50px;
         min-height: calc(100vh - var(--offset-mobile-tab));
         max-height: calc(100vh - var(--offset-mobile-tab));
+        
+        .education_data {
+            width: 90% !important;
+        }
 
         .main {
             #projects .render .components {
