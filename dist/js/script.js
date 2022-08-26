@@ -3,6 +3,7 @@ const eventObserverElements = {
     "home": document.querySelector('#home'),
     "experience": document.querySelector('#experience'),
     "projects": document.querySelector("#projects"),
+    "certificates": document.querySelector("#certificates"),
     "main": document.querySelector(".main"),
     "education": document.querySelector("#education")
 };
@@ -250,7 +251,7 @@ new IntersectionObserver(function () {
         element.classList.add("active");
     }
     eventObserverElements.education.classList.add("active");
-}, { threshold: [.2, .6] }).observe(eventObserverElements.education);
+}, { threshold: [.5] }).observe(eventObserverElements.education);
 // Project view
 new IntersectionObserver(function () {
     let element = document.querySelector("[alias-project]");
@@ -259,7 +260,16 @@ new IntersectionObserver(function () {
         element.classList.add("active");
     }
     eventObserverElements.projects.classList.add("active");
-}, { threshold: [.2] }).observe(eventObserverElements.projects);
+}, { threshold: [.5] }).observe(eventObserverElements.projects);
+// Certificate view
+new IntersectionObserver(function () {
+    let element = document.querySelector("[alias-certificates]");
+    if (!element.classList.contains("active")) {
+        document.querySelector("li.active").classList.remove("active");
+        element.classList.add("active");
+    }
+    eventObserverElements.certificates.classList.add("active");
+}, { threshold: [.5] }).observe(eventObserverElements.certificates);
 // Scroll View observer for elements
 document.querySelector(".main").addEventListener("scroll", () => {
     const rendererOnView = () => {
