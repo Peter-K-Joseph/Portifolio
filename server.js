@@ -69,6 +69,12 @@ app.post("/apis/texts", (req, res) => {
 	res.send(JSON.stringify(data.setting_data["statements"]));
 });
 
+app.post("/apis/education", (req, res) => {
+	logger.info(`Access requested to get text data`);
+	res.header("Content-Type", "application/json");
+	res.send(JSON.stringify(data.setting_data["education"]));
+});
+
 app.post("/apis/projects", (req, res) => {
 	logger.info(`Access requested to get project data`);
 	res.header("Content-Type", "application/json");

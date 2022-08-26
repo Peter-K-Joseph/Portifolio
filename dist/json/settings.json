@@ -1,6 +1,19 @@
 {
     "interships": [
         {
+            "role": "Software Developer",
+            "company": {
+                "short": "IIC",
+                "full": "Industry Interaction Cell, Christ (Deemed to be) University"
+            }, 
+            "bg": "dark",
+            "duration": "In Progress",
+            "files": [],
+            "image": "./resources/company_iic.png",
+            "keypoints": [],
+            "description": "IIC is a student-run organization that provides opportunities for students to interact with industry professionals and gain valuable experience."
+        },
+        {
             "role": "AWS Intern",
             "company": {
                 "short": "F13 Tech",
@@ -8,7 +21,10 @@
             },
             "bg": "light",
             "duration": "3 Months",
-            "files": [],
+            "files": [{
+                "name": "Internship Completion Letter",
+                "file": "/resources/files/fxii_1.pdf"
+            }],
             "image": "./resources/company_fxii.png",
             "projects": ["AWS Site Creation using EC2 and other tools"],
             "keypoints": [
@@ -27,13 +43,19 @@
                 "full": "Industry Interaction Cell, Christ (Deemed to be) University"
             }, 
             "bg": "dark",
-            "files": [],
-            "projects": [],
+            "files": [
+                {
+                    "name": "Internship Project Screenshot",
+                    "file": "/resources/projects/iic_project.pdf"
+                }
+            ],
+            "projects": ["IIC Project Website"],
             "duration": "In Progress",
             "image": "./resources/company_iic.png",
             "keypoints": [
                 "Worked with Angular",
-                "Creates a single thread application, a simple Grocery List Application"
+                "Creates a single thread application, a simple Grocery List Application",
+                "Create a "
             ],
             "about": "The Institute Industry Interaction Cell (IIIC) at CHRIST (Deemed to be University) contributes to its programs and partnership with industry."
         }, {

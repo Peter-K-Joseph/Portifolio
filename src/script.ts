@@ -3,12 +3,14 @@ const eventObserverElements = {
 	"home": document.querySelector('#home'),
 	"experience": document.querySelector('#experience'),
 	"projects": document.querySelector("#projects"),
+	"certificates": document.querySelector("#certificates"),
 	"main": document.querySelector(".main"),
 	"education": document.querySelector("#education")
 }
 
 const apis = {
 	"interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json() }),
+	"education": fetch("./apis/education", { method: "post" }).then((data) => { return data.json() }),
 	"projects": fetch("/apis/projects", { method: "post" }).then(data => { return data.json() }),
 	"text": fetch("./apis/texts", { method: "post" }).then((data) => { return data.json() }),
 	"resume_url": fetch("./apis/resume", { method: "post" }).then((data) => { return data.json() }),
@@ -77,6 +79,38 @@ async function typeSentence(e, data) {
 
 apis.text.then((data) => { typeSentence(0, data); }).catch(() => {
 	console.error("[TEXT] TextWrite Module Error. apis.text did not succeed")
+})
+
+apis.education.then((data) => {
+	const education = document.querySelector(".education_data") as HTMLElement;
+	let DOMcontent = "";
+	data.forEach(element => {
+		DOMcontent += `<div class="institute">
+		<div class="ins_data">
+			<h1>${element["name"]}</h1>
+			<img src="${element["img"]}" alt="Image of ${element["name"].split(" ")[0]}">
+		</div>`;
+		element["results"].forEach(result => {
+			console.log(result)
+			DOMcontent += `<div class="exam">
+			<h3 class="edu">${result["name"]}</h3>
+			<span class="score">
+				<div class="slider">
+					<div class="represent" style="width: ${parseFloat(result["marks"]["got"])/parseFloat(result["marks"]["max"])*100}%" data-represent="${result["marks"]["got"]}"></div>
+				</div>
+				<div class="scoreboard">
+					<span>${result["marks"]["min"]}</span>
+					<span>${result["marks"]["max"]}</span>
+				</div>  
+				<div class="info">${(result["desc"] == null? '': result["desc"])}</div>
+			</span>
+		</div>`;
+		})
+		DOMcontent += `</div>`
+	})
+	education.innerHTML = DOMcontent;
+}).catch(() => {
+	console.error("[EDUCATION] Education Module Error. apis.education did not succeed")
 })
 
 apis.interships.then((e) => {
@@ -193,7 +227,7 @@ new IntersectionObserver(() => {
 	if (!element.classList.contains("active")) {
 		element.classList.add("active")
 	}
-}, { threshold: [.3, .7, 1] }).observe(eventObserverElements.experience);
+}, { threshold: [.4] }).observe(eventObserverElements.experience);
 // >> Home view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-home]")
@@ -222,7 +256,7 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 	eventObserverElements.education.classList.add("active")
-}, { threshold: [.2, .6] }).observe(eventObserverElements.education);
+}, { threshold: [.5] }).observe(eventObserverElements.education);
 // Project view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-project]")
@@ -231,7 +265,16 @@ new IntersectionObserver(function () {
 		element.classList.add("active")
 	}
 	eventObserverElements.projects.classList.add("active")
-}, { threshold: [.6, .3] }).observe(eventObserverElements.projects);
+}, { threshold: [.5] }).observe(eventObserverElements.projects);
+// Certificate view
+new IntersectionObserver(function () {
+	let element = document.querySelector("[alias-certificates]")
+	if (!element.classList.contains("active")) {
+		document.querySelector("li.active").classList.remove("active")
+		element.classList.add("active")
+	}
+	eventObserverElements.certificates.classList.add("active")
+}, { threshold: [.5] }).observe(eventObserverElements.certificates);
 // Scroll View observer for elements
 document.querySelector(".main").addEventListener("scroll", () => {
 	const rendererOnView = () => {
