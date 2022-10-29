@@ -462,6 +462,63 @@ body {
   color: #e0d5c0;
   font-family: "Source Sans Pro", sans-serif;
 }
+.main > #certificates .render h3 {
+  font-family: "Manrope", sans-serif;
+  width: 100%;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #e0d5c0;
+  text-align: center;
+}
+.main > #certificates .render .display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 50%;
+}
+.main > #certificates .render .display .certificate_title {
+  font-family: "Manrope", sans-serif;
+  width: 80%;
+  font-weight: 800;
+  font-size: 1.2rem;
+  padding: 20px;
+  border-radius: 0.25rem;
+  margin: 10px auto;
+  color: #e0d5c0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main > #certificates .render .display .certificate_title .organisation_certifier {
+  background-position: center;
+  background-image: url("../resources/organisation_ludifu.webp");
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main > #certificates .render .display .certificate_title:nth-child(even) {
+  background-image: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
+}
+.main > #certificates .render .display .certificate_title:nth-child(odd) {
+  background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+}
+.main > #certificates .render .display .certificate_title > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  width: 100%;
+}
+.main > #certificates .render .display .certificate_title > div span.certificateID {
+  width: 100%;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+.main > #certificates .render .display .certificate_title > div span.certificateID::before {
+  content: "Certificate ID: ";
+}
 .main #education > h1 {
   width: 100%;
   text-align: center;
