@@ -5,7 +5,7 @@
             "company": {
                 "short": "IIC",
                 "full": "Industry Interaction Cell, Christ (Deemed to be) University"
-            }, 
+            },
             "bg": "dark",
             "duration": "In Progress",
             "files": [],
@@ -21,12 +21,16 @@
             },
             "bg": "light",
             "duration": "3 Months",
-            "files": [{
-                "name": "Internship Completion Letter",
-                "file": "/resources/files/fxii_1.pdf"
-            }],
+            "files": [
+                {
+                    "name": "Internship Completion Letter",
+                    "file": "/resources/files/fxii_1.pdf"
+                }
+            ],
             "image": "./resources/company_fxii.png",
-            "projects": ["AWS Site Creation using EC2 and other tools"],
+            "projects": [
+                "AWS Site Creation using EC2 and other tools"
+            ],
             "keypoints": [
                 "Learnt how to deploy applications on AWS",
                 "Learnt how to make the most out of the different services provided by AWS",
@@ -36,12 +40,13 @@
                 "Migrated a personal project on AWS using AWS EC2, AWS Bucket Storage and AWS Aurora"
             ],
             "about": "F13 helps companies make better, more informed decisions based on insights from the outside. We believe that business strategy will be increasingly shaped by insights from online data. Organizations will look outside, beyond their internal reporting systems to a world of data that is constantly growing and changing. Our customers use these insights to make timely decisions based on real-time analysis."
-        }, {
+        },
+        {
             "role": "Angular Developer Intern",
             "company": {
                 "short": "IIC Cell",
                 "full": "Industry Interaction Cell, Christ (Deemed to be) University"
-            }, 
+            },
             "bg": "dark",
             "files": [
                 {
@@ -49,7 +54,9 @@
                     "file": "/resources/projects/iic_project.pdf"
                 }
             ],
-            "projects": ["IIC Project Website"],
+            "projects": [
+                "IIC Project Website"
+            ],
             "duration": "In Progress",
             "image": "./resources/company_iic.png",
             "keypoints": [
@@ -58,21 +65,30 @@
                 "Create a "
             ],
             "about": "The Institute Industry Interaction Cell (IIIC) at CHRIST (Deemed to be University) contributes to its programs and partnership with industry."
-        }, {
+        },
+        {
             "role": "Tech Tank Volunteer",
-            "projects": ["CEWScope Service Manager", "CEWS Booking System", "CAPS Backend Management and Analytics Tool", "NiaRecruit Recruitment Manager"],
+            "projects": [
+                "CEWScope Service Manager",
+                "CEWS Booking System",
+                "CAPS Backend Management and Analytics Tool",
+                "NiaRecruit Recruitment Manager"
+            ],
             "company": {
                 "short": "CAPS",
                 "full": "Center for Academic and Professional Support"
-            }, 
+            },
             "bg": "light",
-            "files": [{
-                "name": "Letter or Recognition - UX/UI Developer",
-                "file": "/resources/files/caps_1.pdf"
-            }, {
-                "name": "Letter or Recognition - Best Tech Tank Volunteer",
-                "file": "/resources/files/caps_2.pdf"
-            }],
+            "files": [
+                {
+                    "name": "Letter or Recognition - UX/UI Developer",
+                    "file": "/resources/files/caps_1.pdf"
+                },
+                {
+                    "name": "Letter or Recognition - Best Tech Tank Volunteer",
+                    "file": "/resources/files/caps_2.pdf"
+                }
+            ],
             "duration": "2 Years",
             "image": "./resources/company_caps.png",
             "keypoints": [
@@ -83,17 +99,22 @@
                 "Recruited volunteers for Tech Tank and other committees"
             ],
             "about": "At its core, CAPS provides assistance in academic and professional areas for anyone who may need it. The doors of CAPS are open to students, faculty, researchers, and anyone who is seeking help. At an individual level, CAPS helps one attain greater proficiency in competencies related to the academic and professional sphere, through a wide array of topics ranging from research to career readiness. It is also an opportunity to develop one's networking skills and understand industry expectations through interaction-based university-wide sessions. At an organizational level, it creates a platform for all the deaneries, that promotes cross-fertilization of ideas and knowledge, leading to optimal utilization of the university’s resources. At a societal level, CAPS aims to produce holistically developed individuals, equipped with the appropriate skill sets that enable them to make a difference. "
-        }, {
+        },
+        {
             "role": "Python Developer",
-            "projects": ["RebelMouse CMS Site Migration Toolkit"],
+            "projects": [
+                "RebelMouse CMS Site Migration Toolkit"
+            ],
             "company": {
                 "short": "NewsGram",
                 "full": "NewsGram"
-            }, 
-            "files": [{
-                "name": "Internship Completion Letter",
-                "file": "/resources/files/newsgram_1.pdf"
-            }],
+            },
+            "files": [
+                {
+                    "name": "Internship Completion Letter",
+                    "file": "/resources/files/newsgram_1.pdf"
+                }
+            ],
             "bg": "light",
             "duration": "7 Months",
             "image": "./resources/company_newsgram.webp",
@@ -109,19 +130,24 @@
                 "Worked with <code>Amazon S3</code>"
             ],
             "about": "NewsGram is a US-based nonprofit committed to bring objective and non-partisan news reporting to our readers. It is approved by Internal Revenue Service (IRS) as a tax exempt entity, i.e., 501 (c) (3) entity."
-        }, {
+        },
+        {
             "role": "Frontent Developer",
             "company": {
                 "short": "CUREYA",
                 "full": "CUREYA"
             },
             "bg": "light",
-            "files": [{
-                "name": "Internship Completion Letter",
-                "file": "/resources/files/cureya_1.pdf"
-            }],
+            "files": [
+                {
+                    "name": "Internship Completion Letter",
+                    "file": "/resources/files/cureya_1.pdf"
+                }
+            ],
             "duration": "1 Month",
-            "projects": ["Frontent For Travel Chat Bots"],
+            "projects": [
+                "Frontent For Travel Chat Bots"
+            ],
             "image": "./resources/company_cureya.png",
             "keypoints": [
                 "Learnt to collaborate with HR Manager",
@@ -134,116 +160,261 @@
         }
     ],
     "statements": {
-        "bold": ["Developer", "Student", "Enthusiast", "Strategic Thinker"],
-        "underline": ["writes good code", "is learning BTech in CSE", "is learning full-stack", "solves real life coding problems"]
-    }, 
+        "bold": [
+            "Developer",
+            "Student",
+            "Enthusiast",
+            "Strategic Thinker"
+        ],
+        "underline": [
+            "writes good code",
+            "is learning BTech in CSE",
+            "is learning full-stack",
+            "solves real life coding problems"
+        ]
+    },
+    "certificates": [
+        {
+            "name": "AWS Partner: Machine Learning on AWS (Technical)",
+            "docuement": "./resources/certificates/aws_machine_learning.pdf",
+            "require_viewer": true,
+            "link": null,
+            "providor": "Amazon Web Services"
+        },
+        {
+            "name": "Introduction to Machine Learning",
+            "docuement": "./resources/certificates/introduction_to_machine_learning.pdf",
+            "require_viewer": true,
+            "link": null,
+            "providor": "Amazon Web Services"
+        },
+        {
+            "name": "AWS Partner: Foundations (Business)",
+            "docuement": "./resources/certificates/aws_partner_foundation.pdf",
+            "require_viewer": true,
+            "link": null,
+            "providor": "Amazon Web Services"
+        },
+        {
+            "name": "The Joy of Computing using Python",
+            "docuement": "./resources/certificates/aws_partner_foundation.pdf",
+            "link": null,
+            "require_viewer": true,
+            "providor": "NPTEL"
+        },
+        {
+            "name": "AWS Partner: Cloud Economics Accreditation",
+            "link": "https://www.credly.com/badges/42e561ae-841f-4b18-9a12-02995555419b?source=linked_in_profile",
+            "docuement": null,
+            "require_viewer": true,
+            "providor": "Amazon Web Services"
+        },
+        {
+            "name": "AWS Partner: Foundations (Technical) (Digital)",
+            "docuement": null,
+            "link": null,
+            "require_viewer": true,
+            "providor": "Amazon Web Services"
+        },
+        {
+            "name": "AWS Partner: Accreditation (Business)",
+            "docuement": null,
+            "require_viewer": true,
+            "link": "https://www.credly.com/badges/b47cae1c-9f4d-4fea-bba7-d05378ef8871?source=linked_in_profile",
+            "providor": "Amazon Web Services"
+        },
+        {
+            "name": "Introduction to Cybersecurity",
+            "docuement": null,
+            "require_viewer": true,
+            "link": "https://www.credly.com/badges/b273d439-74fd-4c98-b262-58f5b3a1f66a?source=linked_in_profile",
+            "providor": "Cisco"
+        }
+    ],
     "resume": "./resources/files/Resume.pdf",
-    "projects": [{
-        "name": "CAPScope Recruitment",
-        "frameworks": ["HTML","SCSS","TypeScript","JQuery","PHP","Electron","Node.js","MySQL"],
-        "organisation": "CAPS",
-        "desc": "CAPScope Recruitment is a web application that can be used for recruitment of volunteers. It gives you the flexibility of distributing the recruitment evenly across recruiters, view and manage recruitees and many more."
-    }, {
-        "name": "CAPS Management System",
-        "frameworks": ["HTML","SCSS","TypeScript","JQuery","PHP","MySQL"],
-        "organisation": "CAPS",
-        "desc": "CAPS Management System is a software used create bookings, manage and maintain booking records, view statistics and more. It has a user access portal and a volunteer access portal. Consisits of a User Account page, booking page, booking management page and a control panel with overview dashboard."
-        },{
-        "name": "Theresian School Magazine",
-        "frameworks": ["HTML","SCSS","JavaScript","JQuery"],
-        "organisation": "St Theresa's High School",
-        "desc": "A static, yet interactive school magazine built using Flip.js and HTML based pages. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://theresian.nuvie.live/\">Click here to view project</a>."
-    }, {
-        "name": "School Attendance System",
-        "frameworks": ["HTML","SCSS","JavaScript","JQuery", "PHP", "MySQL"],
-        "organisation": "St Theresa's High School",
-        "desc": "A school attendance system built to log students attendance and view them individually and as an overview."
-    }, {
-        "name": "Smartlink Connect Kit",
-        "frameworks": ["HTML","SCSS","JavaScript","JQuery", "Python"],
-        "organisation": null,
-        "desc": "A webapp used to control and montitor home applicances. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/frontent/\">Click here to view project theme</a> or <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/nuvie%20HomeLink%20PWA/dist/\">Click here to view mobile PWA theme</a>"
-    }, {
-        "name": "LightALamp: Online Inaguration System",
-        "frameworks": ["HTML","SCSS","JavaScript","JQuery", "PHP","MySQL"],
-        "organisation": null,
-        "desc": "A webpage used to represent light a lamp for online events signifying the Indian Culture. Guests can virtually light the lamp by clicking in 'light the lamp' button from a specified link."
-    }, {
-        "name": "Nia Aurora",
-        "frameworks": ["Python"],
-        "organisation": null,
-        "desc": "A Discord music bot made using python and discord-api that can play, stream and download music."
-        }, {
-        "name": "Mus.io",
-        "frameworks": ["HTML","SCSS","JavaScript","JQuery", "Python"],
-        "organisation": null,
-        "desc": "A simple music player. Still in progress, this player can scan the entire local machine, find and play music. <a href=\"https://peter-k-joseph.github.io/Musio/dist/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view a preview of the theme</a>"
-    }, {
-        "name": "Wordpress to Rebelmouse Migration Toolkit",
-        "frameworks": ["Python"],
-        "organisation": "NewsGram",
-        "desc": "A tool kit used to migrate wordpress data, its posts, images and metadata to Rebelmouse CMS."
-    }, {
-        "name": "ClassQuiz: User Dashboard",
-        "frameworks": ["HTML", "CSS", "JavaScript"],
-        "organisation": "NewsGram",
-        "desc": "A frontent project for a quiz user dashboard that can view and manage quizzes, start and stop quizzes and create quiz. <a href=\"https://peter-k-joseph.github.io/ClassQuiz-User-Dashboard/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view theme</a>"
-    }], 
-    "education": [{
-        "name": "Rajagiri Higher Secondary School",
-        "img": "./resources/edu_rajagiri.png",
-        "results": [{
-            "name": "SSLC",
-            "desc": "<div class='board'>Board: <span class='data'>SCERT (The State Council of Educational Research and Training)</span></div><div class='board'>Syllabus: <span class='data'>Class 10</span></div>",
-            "marks": {
-                "min": "0%",
-                "max": "100%",
-                "got": "97.80%"
-            }
-        }, {
-            "name": "DHSE",
-            "desc": "<div class='board'>Board: <span class='data'>DHSE (Directorate of Higher Secondary Education)</span></div><div class='board'>Syllabus: <span class='data'>Class 12 (Physics, Chemistry, Maths, Computer Science)</span></div>",
-            "marks": {
-                "min": "0%",
-                "max": "100%",
-                "got": "80.75%"
-            }
-        }]
-    }, {
-        "name": "CHRIST (Deemed To Be) University",
-        "img": "./resources/edu_christ.png",
-        "results": [{
-            "name": "Semester 1",
-            "desc": null,
-            "marks": {
-                "min": "0.00 GPA",
-                "max": "4.00 GPA",
-                "got": "3.78 GPA"
-            }
-        }, {
-            "name": "Semester 2",
-            "desc": null,
-            "marks": {
-                "min": "0.00 GPA",
-                "max": "4.00 GPA",
-                "got": "3.75 GPA"
-            }
-        }, {
-            "name": "Semester 3",
-            "desc": null,
-            "marks": {
-                "min": "0.00 GPA",
-                "max": "4.00 GPA",
-                "got": "3.46 GPA"
-            }
-        }, {
-            "name": "Semester 4",
-            "desc": null,
-            "marks": {
-                "min": "0.00 GPA",
-                "max": "4.00 GPA",
-                "got": "3.31 GPA"
-            }
-        }]
-    }]
+    "projects": [
+        {
+            "name": "CAPScope Recruitment",
+            "frameworks": [
+                "HTML",
+                "SCSS",
+                "TypeScript",
+                "JQuery",
+                "PHP",
+                "Electron",
+                "Node.js",
+                "MySQL"
+            ],
+            "organisation": "CAPS",
+            "desc": "CAPScope Recruitment is a web application that can be used for recruitment of volunteers. It gives you the flexibility of distributing the recruitment evenly across recruiters, view and manage recruitees and many more."
+        },
+        {
+            "name": "CAPS Management System",
+            "frameworks": [
+                "HTML",
+                "SCSS",
+                "TypeScript",
+                "JQuery",
+                "PHP",
+                "MySQL"
+            ],
+            "organisation": "CAPS",
+            "desc": "CAPS Management System is a software used create bookings, manage and maintain booking records, view statistics and more. It has a user access portal and a volunteer access portal. Consisits of a User Account page, booking page, booking management page and a control panel with overview dashboard."
+        },
+        {
+            "name": "Theresian School Magazine",
+            "frameworks": [
+                "HTML",
+                "SCSS",
+                "JavaScript",
+                "JQuery"
+            ],
+            "organisation": "St Theresa's High School",
+            "desc": "A static, yet interactive school magazine built using Flip.js and HTML based pages. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://theresian.nuvie.live/\">Click here to view project</a>."
+        },
+        {
+            "name": "School Attendance System",
+            "frameworks": [
+                "HTML",
+                "SCSS",
+                "JavaScript",
+                "JQuery",
+                "PHP",
+                "MySQL"
+            ],
+            "organisation": "St Theresa's High School",
+            "desc": "A school attendance system built to log students attendance and view them individually and as an overview."
+        },
+        {
+            "name": "Smartlink Connect Kit",
+            "frameworks": [
+                "HTML",
+                "SCSS",
+                "JavaScript",
+                "JQuery",
+                "Python"
+            ],
+            "organisation": null,
+            "desc": "A webapp used to control and montitor home applicances. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/frontent/\">Click here to view project theme</a> or <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://peter-k-joseph.github.io/HomeLinkSmartConnect/nuvie%20HomeLink%20PWA/dist/\">Click here to view mobile PWA theme</a>"
+        },
+        {
+            "name": "LightALamp: Online Inaguration System",
+            "frameworks": [
+                "HTML",
+                "SCSS",
+                "JavaScript",
+                "JQuery",
+                "PHP",
+                "MySQL"
+            ],
+            "organisation": null,
+            "desc": "A webpage used to represent light a lamp for online events signifying the Indian Culture. Guests can virtually light the lamp by clicking in 'light the lamp' button from a specified link."
+        },
+        {
+            "name": "Nia Aurora",
+            "frameworks": [
+                "Python"
+            ],
+            "organisation": null,
+            "desc": "A Discord music bot made using python and discord-api that can play, stream and download music."
+        },
+        {
+            "name": "Mus.io",
+            "frameworks": [
+                "HTML",
+                "SCSS",
+                "JavaScript",
+                "JQuery",
+                "Python"
+            ],
+            "organisation": null,
+            "desc": "A simple music player. Still in progress, this player can scan the entire local machine, find and play music. <a href=\"https://peter-k-joseph.github.io/Musio/dist/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view a preview of the theme</a>"
+        },
+        {
+            "name": "Wordpress to Rebelmouse Migration Toolkit",
+            "frameworks": [
+                "Python"
+            ],
+            "organisation": "NewsGram",
+            "desc": "A tool kit used to migrate wordpress data, its posts, images and metadata to Rebelmouse CMS."
+        },
+        {
+            "name": "ClassQuiz: User Dashboard",
+            "frameworks": [
+                "HTML",
+                "CSS",
+                "JavaScript"
+            ],
+            "organisation": "NewsGram",
+            "desc": "A frontent project for a quiz user dashboard that can view and manage quizzes, start and stop quizzes and create quiz. <a href=\"https://peter-k-joseph.github.io/ClassQuiz-User-Dashboard/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view theme</a>"
+        }
+    ],
+    "education": [
+        {
+            "name": "Rajagiri Higher Secondary School",
+            "img": "./resources/edu_rajagiri.png",
+            "results": [
+                {
+                    "name": "SSLC",
+                    "desc": "<div class='board'>Board: <span class='data'>SCERT (The State Council of Educational Research and Training)</span></div><div class='board'>Syllabus: <span class='data'>Class 10</span></div>",
+                    "marks": {
+                        "min": "0%",
+                        "max": "100%",
+                        "got": "97.80%"
+                    }
+                },
+                {
+                    "name": "DHSE",
+                    "desc": "<div class='board'>Board: <span class='data'>DHSE (Directorate of Higher Secondary Education)</span></div><div class='board'>Syllabus: <span class='data'>Class 12 (Physics, Chemistry, Maths, Computer Science)</span></div>",
+                    "marks": {
+                        "min": "0%",
+                        "max": "100%",
+                        "got": "80.75%"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "CHRIST (Deemed To Be) University",
+            "img": "./resources/edu_christ.png",
+            "results": [
+                {
+                    "name": "Semester 1",
+                    "desc": null,
+                    "marks": {
+                        "min": "0.00 GPA",
+                        "max": "4.00 GPA",
+                        "got": "3.78 GPA"
+                    }
+                },
+                {
+                    "name": "Semester 2",
+                    "desc": null,
+                    "marks": {
+                        "min": "0.00 GPA",
+                        "max": "4.00 GPA",
+                        "got": "3.75 GPA"
+                    }
+                },
+                {
+                    "name": "Semester 3",
+                    "desc": null,
+                    "marks": {
+                        "min": "0.00 GPA",
+                        "max": "4.00 GPA",
+                        "got": "3.46 GPA"
+                    }
+                },
+                {
+                    "name": "Semester 4",
+                    "desc": null,
+                    "marks": {
+                        "min": "0.00 GPA",
+                        "max": "4.00 GPA",
+                        "got": "3.31 GPA"
+                    }
+                }
+            ]
+        }
+    ]
 }
