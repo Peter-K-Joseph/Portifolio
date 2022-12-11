@@ -7,6 +7,10 @@
   font-family: RoxaleStory;
   src: url(../resources/fonts/RoxaleStory.otf);
 }
+@font-face {
+  font-family: Quentin;
+  src: url(../resources/fonts/Quentin.otf);
+}
 :root {
   --grey-50: #F9FAFB;
   --grey-100: #F3F4F6;
@@ -1131,6 +1135,9 @@ nav ul li.active {
   body .main #projects .render .components .project .frameworks span {
     margin: 4px 2px;
   }
+  body .main .display {
+    grid-template-columns: 1fr !important;
+  }
   body .main #experience h1 {
     text-align: center;
     color: #e0d5c0;
@@ -1146,6 +1153,7 @@ nav ul li.active {
     margin: 50px 0;
   }
   body .main #home .col:nth-child(1) .intro__image {
+    background-position: top;
     width: 90%;
     height: 40vh;
   }
