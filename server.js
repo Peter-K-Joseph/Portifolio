@@ -81,6 +81,12 @@ app.post("/apis/projects", (req, res) => {
 	res.send(JSON.stringify(data.setting_data["projects"]));
 });
 
+app.get("debug/system/logs", (req, res) => {
+	logger.info(`Access requested to get system logs`);
+	res.header("Content-Type", "text/plain");
+	res.send(fs.readFileSync("system.log"));
+});
+
 app.listen(port, () => {
 	logger.info(`Portifolio app is online and is active at PORT:${port}`);
 });
