@@ -3,7 +3,7 @@ const express = require("express");
 const {createLogger, format, transports} = require("winston");
 const {combine, timestamp, printf} = format;
 const app = express();
-
+const fs = require("fs");
 const logger = createLogger({
 	format: combine(
 		timestamp(),
