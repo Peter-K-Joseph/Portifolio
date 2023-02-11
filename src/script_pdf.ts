@@ -2,15 +2,15 @@ const PDFStart = (nameRoute) => {
     let loadingTask = pdfjsLib.getDocument(nameRoute),
         pdfDoc = null,
         canvas = document.querySelector('#cnv'),
-        ctx = canvas.getContext('2d'),
+        ctx = (canvas as HTMLCanvasElement).getContext('2d'),
         scale = 1.5,
         numPage = 1;
 
     const GeneratePDF = numPage => {
         pdfDoc.getPage(numPage).then(page => {
             let viewport = page.getViewport({ scale: scale });
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
+            (canvas as HTMLCanvasElement).height = viewport.height;
+            (canvas as HTMLCanvasElement).width = viewport.width;
 
             let renderContext = {
                 canvasContext: ctx,
@@ -19,7 +19,7 @@ const PDFStart = (nameRoute) => {
 
             page.render(renderContext);
         })
-        document.querySelector('#npages').innerHTML = `Page 1 of ${numPage}`;
+        document.querySelector('#npages').innerHTML = `Page ${numPage} of ${pdfDoc.numPages}`;
 
     }
 
@@ -44,7 +44,7 @@ const PDFStart = (nameRoute) => {
 
     loadingTask.promise.then(pdfDoc_ => {
         pdfDoc = pdfDoc_;
-        document.querySelector('#npages').innerHTML = `Page ${pdfDoc.numPages} of ${numPage}`;
+        document.querySelector('#npages').innerHTML = `Page ${numPage} of ${pdfDoc.numPages}`;
         GeneratePDF(numPage)
     });
 

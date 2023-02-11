@@ -51,31 +51,37 @@ app.get("/viewpdf", (req, res) => {
 	}
 });
 
-app.post("/apis/internship", (req, res) => {
+app.get("/apis/internship", (req, res) => {
 	logger.info(`Access requested to get internship data`);
 	res.header("Content-Type", "application/json");
 	res.send(JSON.stringify(data.setting_data["interships"]));
 });
 
-app.post("/apis/resume", (req, res) => {
+app.get("/apis/resume", (req, res) => {
 	logger.info(`Access requested to get internship data`);
 	res.header("Content-Type", "application/json");
 	res.send(JSON.stringify(data.setting_data["resume"]));
 });
 
-app.post("/apis/texts", (req, res) => {
+app.get("/apis/texts", (req, res) => {
 	logger.info(`Access requested to get text data`);
 	res.header("Content-Type", "application/json");
 	res.send(JSON.stringify(data.setting_data["statements"]));
 });
 
-app.post("/apis/education", (req, res) => {
-	logger.info(`Access requested to get text data`);
+app.get("/apis/certificates", (req, res) => {
+	logger.info(`Access requested to get certificate data`);
+	res.header("Content-Type", "application/json");
+	res.send(JSON.stringify(data.setting_data["certificates"]));
+})
+
+app.get("/apis/education", (req, res) => {
+	logger.info(`Access requested to get education data`);
 	res.header("Content-Type", "application/json");
 	res.send(JSON.stringify(data.setting_data["education"]));
 });
 
-app.post("/apis/projects", (req, res) => {
+app.get("/apis/projects", (req, res) => {
 	logger.info(`Access requested to get project data`);
 	res.header("Content-Type", "application/json");
 	res.send(JSON.stringify(data.setting_data["projects"]));

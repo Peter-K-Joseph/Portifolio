@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Roboto:wght@300;400;500&family=Source+Sans+Pro:wght@700&display=swap&family=Quicksand:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 @font-face {
   font-family: RoxaleStoryItalic;
   src: url(../resources/fonts/RoxaleStoryItalic.otf);
@@ -220,6 +221,107 @@ body {
   width: 100%;
   height: 100%;
 }
+.dispathInfoBox > .certificate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dispathInfoBox > .certificate .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.dispathInfoBox > .certificate img {
+  width: 150px;
+  object-fit: contain;
+}
+.dispathInfoBox > .certificate, .dispathInfoBox > .internship {
+  padding: 30px 0;
+}
+.dispathInfoBox > .certificate img, .dispathInfoBox > .internship img {
+  padding: 5px 15px;
+  border-radius: 0.2rem;
+  background-color: var(--white);
+}
+.dispathInfoBox > .certificate img.dark, .dispathInfoBox > .internship img.dark {
+  background-color: var(--grey-900);
+}
+.dispathInfoBox > .certificate .col, .dispathInfoBox > .internship .col {
+  width: 100%;
+  text-align: center;
+}
+.dispathInfoBox > .certificate .col h2, .dispathInfoBox > .internship .col h2 {
+  font-weight: 500;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.dispathInfoBox > .certificate .col h3, .dispathInfoBox > .internship .col h3 {
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+}
+.dispathInfoBox > .certificate .col h3:hover, .dispathInfoBox > .internship .col h3:hover {
+  text-decoration: underline;
+}
+.dispathInfoBox > .certificate .col button, .dispathInfoBox > .internship .col button {
+  padding: 5px 50px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 4px;
+}
+.dispathInfoBox > .certificate .col button.related_files, .dispathInfoBox > .internship .col button.related_files {
+  background-color: var(--btn-accept);
+}
+.dispathInfoBox > .certificate .col button.related_files:hover, .dispathInfoBox > .internship .col button.related_files:hover {
+  background-color: var(--green-500);
+}
+.dispathInfoBox > .certificate .col button.related_files:active, .dispathInfoBox > .internship .col button.related_files:active {
+  background-color: var(--green-700);
+}
+.dispathInfoBox > .certificate .col button.close_dispatchBox, .dispathInfoBox > .internship .col button.close_dispatchBox {
+  color: white;
+  background-color: var(--btn-reject);
+}
+.dispathInfoBox > .certificate .col button.close_dispatchBox:hover, .dispathInfoBox > .internship .col button.close_dispatchBox:hover {
+  background-color: var(--red-500);
+}
+.dispathInfoBox > .certificate .col button.close_dispatchBox:active, .dispathInfoBox > .internship .col button.close_dispatchBox:active {
+  background-color: var(--red-700);
+}
+.dispathInfoBox > .certificate .col .info, .dispathInfoBox > .internship .col .info {
+  display: flex;
+  overflow: auto;
+  margin: 20px auto;
+}
+.dispathInfoBox > .certificate .col .info h4, .dispathInfoBox > .internship .col .info h4 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+  background-color: #09328b;
+  padding: 0 20px;
+  width: max-content;
+  margin: 0 auto;
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+.dispathInfoBox > .certificate .col .info ul, .dispathInfoBox > .internship .col .info ul {
+  background-color: var(--grey-900);
+  padding: 20px 50px;
+  text-align: left;
+  font-weight: 300;
+  margin: 0;
+  font-size: 1.1rem;
+  border-radius: 0.3rem;
+}
+.dispathInfoBox > .certificate .col .info ul h4, .dispathInfoBox > .internship .col .info ul h4 {
+  all: unset;
+}
 .dispathInfoBox > .internship {
   padding: 30px 0;
 }
@@ -245,80 +347,6 @@ body {
   padding: 5px 10px;
   border-radius: 1rem;
   margin-left: 10px;
-}
-.dispathInfoBox > .internship .col {
-  width: 100%;
-  text-align: center;
-}
-.dispathInfoBox > .internship .col h2 {
-  font-weight: 500;
-  font-family: "Source Sans Pro", sans-serif;
-}
-.dispathInfoBox > .internship .col h3 {
-  font-weight: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin: 0;
-}
-.dispathInfoBox > .internship .col h3:hover {
-  text-decoration: underline;
-}
-.dispathInfoBox > .internship .col button {
-  padding: 5px 50px;
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  margin: 4px;
-}
-.dispathInfoBox > .internship .col button.getInternshipCompletionLetter {
-  background-color: var(--btn-accept);
-}
-.dispathInfoBox > .internship .col button.getInternshipCompletionLetter:hover {
-  background-color: var(--green-500);
-}
-.dispathInfoBox > .internship .col button.getInternshipCompletionLetter:active {
-  background-color: var(--green-700);
-}
-.dispathInfoBox > .internship .col button.close_dispatchBox {
-  color: white;
-  background-color: var(--btn-reject);
-}
-.dispathInfoBox > .internship .col button.close_dispatchBox:hover {
-  background-color: var(--red-500);
-}
-.dispathInfoBox > .internship .col button.close_dispatchBox:active {
-  background-color: var(--red-700);
-}
-.dispathInfoBox > .internship .col .info {
-  display: flex;
-  overflow: auto;
-  margin: 20px auto;
-}
-.dispathInfoBox > .internship .col .info h4 {
-  font-size: 1.5rem;
-  font-weight: 300;
-  margin: 0;
-  background-color: #09328b;
-  width: 30%;
-  margin: 0 auto;
-  border-radius: 0.3rem 0.3rem 0 0;
-}
-.dispathInfoBox > .internship .col .info ul {
-  background-color: var(--grey-900);
-  padding: 20px 50px;
-  text-align: left;
-  font-weight: 300;
-  margin: 0;
-  font-size: 1.1rem;
-  border-radius: 0.3rem;
-}
-.dispathInfoBox > .internship .col .info ul h4 {
-  all: unset;
 }
 @keyframes slideIn {
   0% {
@@ -410,6 +438,11 @@ body {
   transition: 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   will-change: transform, opacity;
 }
+.main .numbers {
+  background: var(--violet-700);
+  padding: 5px 10px;
+  border-radius: 0.5rem;
+}
 .main > div {
   animation: slideDown 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
@@ -474,54 +507,101 @@ body {
   color: #e0d5c0;
   text-align: center;
 }
-.main > #certificates .render .display {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 50%;
-}
-.main > #certificates .render .display .certificate_title {
-  font-family: "Manrope", sans-serif;
-  width: 80%;
-  font-weight: 800;
-  font-size: 1.2rem;
+.main > #certificates #my_certificates {
+  background-color: white;
+  margin: 0 auto;
+  width: calc(100% - 80px);
   padding: 20px;
-  border-radius: 0.25rem;
-  margin: 10px auto;
-  color: #e0d5c0;
-  text-align: center;
+  border-radius: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+.main > #certificates #my_certificates .recents {
+  background-color: var(--blue-50);
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.main > #certificates #my_certificates .recents .recent_certificate {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  overflow-y: auto;
+  padding: 20px;
 }
-.main > #certificates .render .display .certificate_title .organisation_certifier {
-  background-position: center;
-  background-image: url("../resources/organisation_ludifu.webp");
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.main > #certificates .render .display .certificate_title:nth-child(even) {
-  background-image: linear-gradient(65.5deg, rgb(23, 205, 205) -15.1%, rgb(23, 25, 95) 71.5%);
-}
-.main > #certificates .render .display .certificate_title:nth-child(odd) {
-  background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
-}
-.main > #certificates .render .display .certificate_title > div {
+.main > #certificates #my_certificates .recents .recent_certificate .certificate {
+  width: 300px;
+  min-height: 150px;
+  background-color: white;
+  cursor: pointer;
+  margin: 0 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 0 30px;
+  padding: 20px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 20px -13px;
+}
+.main > #certificates #my_certificates .recents .recent_certificate .certificate:first::before {
+  content: "";
+  display: block;
+  width: 600px;
+}
+.main > #certificates #my_certificates .recents .recent_certificate .certificate img {
+  width: 100px;
+}
+.main > #certificates #my_certificates .recents .recent_certificate .certificate .name {
+  text-align: center;
+  margin-top: 20px;
   width: 100%;
 }
-.main > #certificates .render .display .certificate_title > div span.certificateID {
-  width: 100%;
-  font-size: 0.8rem;
-  opacity: 0.8;
+.main > #certificates #my_certificates .recents > span {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  color: var(--blue-900);
 }
-.main > #certificates .render .display .certificate_title > div span.certificateID::before {
-  content: "Certificate ID: ";
+.main > #certificates #my_certificates .certificate_total {
+  font-size: 2rem;
+  color: hsla(0deg, 0%, 0%, 0.7);
+  width: 100%;
+  text-align: center;
+}
+.main > #certificates #my_certificates .certificate_total #total_certificates_value {
+  font-size: 6rem;
+  font-weight: 800;
+  color: #e0d5c0;
+  background-image: url("../resources/mesh-grad.png");
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 160%;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: move-around 1s ease-in-out infinite;
+}
+@keyframes move-around {
+  0% {
+    background-position: 0 0;
+  }
+  20% {
+    background-position: 20% 30%;
+  }
+  40% {
+    background-position: 40% 60%;
+  }
+  50% {
+    background-position: 50% 60%;
+  }
+  60% {
+    background-position: 40% 80%;
+  }
+  80% {
+    background-position: 20% 30%;
+  }
+  100% {
+    background-position: 0% 0;
+  }
 }
 .main #education > h1 {
   width: 100%;
@@ -1110,7 +1190,6 @@ nav ul li.active {
     height: 100vh;
     max-height: 100vh;
   }
-
   body {
     flex-direction: column-reverse;
     --offset-mobile-tab: 50px;
@@ -1186,7 +1265,6 @@ nav ul li.active {
     padding: 0 20px;
     font-size: 1.2rem;
   }
-
   .dispathInfoBox {
     width: 100vw;
     z-index: 1000;
@@ -1196,8 +1274,12 @@ nav ul li.active {
     transform: rotate(-90deg) translate(-50%, 150%) !important;
     top: 0;
   }
-  .dispathInfoBox .internship .col h3 {
+  .dispathInfoBox .col h3 {
     flex-direction: column;
+  }
+  .dispathInfoBox > div > iframe {
+    width: 100%;
+    height: 100%;
   }
   .dispathInfoBox .internship .disclaimer {
     display: none;

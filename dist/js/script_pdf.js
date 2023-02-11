@@ -11,7 +11,7 @@ const PDFStart = (nameRoute) => {
             };
             page.render(renderContext);
         });
-        document.querySelector('#npages').innerHTML = `Page 1 of ${numPage}`;
+        document.querySelector('#npages').innerHTML = `Page ${numPage} of ${pdfDoc.numPages}`;
     };
     const PrevPage = () => {
         if (numPage === 1) {
@@ -31,7 +31,7 @@ const PDFStart = (nameRoute) => {
     document.querySelector('#next').addEventListener('click', NextPage);
     loadingTask.promise.then(pdfDoc_ => {
         pdfDoc = pdfDoc_;
-        document.querySelector('#npages').innerHTML = `Page ${pdfDoc.numPages} of ${numPage}`;
+        document.querySelector('#npages').innerHTML = `Page ${numPage} of ${pdfDoc.numPages}`;
         GeneratePDF(numPage);
     });
 };
