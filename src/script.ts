@@ -9,11 +9,8 @@ const eventObserverElements = {
 }
 
 const apis = {
-	"interships": fetch("./apis/internship", { method: "post" }).then((data) => { return data.json() }),
-	"education": fetch("./apis/education", { method: "post" }).then((data) => { return data.json() }),
-	"projects": fetch("/apis/projects", { method: "post" }).then(data => { return data.json() }),
-	"text": fetch("./apis/texts", { method: "post" }).then((data) => { return data.json() }),
-	"resume_url": fetch("./apis/resume", { method: "post" }).then((data) => { return data.json() }),
+	"text": fetch("./apis/texts", { method: "get" }).then((data) => { return data.json() }),
+	"resume_url": fetch("./apis/resume", { method: "get" }).then((data) => { return data.json() }),
 	"dispatch_viewBarClose": () => {
 		let dispathInfoBox = document.querySelector(".dispathInfoBox");
 		dispathInfoBox.classList.add("close")
@@ -36,7 +33,7 @@ const apis = {
 	}
 }
 
-const getCommonColorCode = (img = document.querySelector("organisation_certifier")) => {
+const getCommonColorCode = (img) => {
 	let blockSize = 5, defaultRGB = { r: 0, g: 0, b: 0 },
 		canvas = document.createElement('canvas'),
 		context = canvas.getContext && canvas.getContext('2d'),
@@ -119,119 +116,285 @@ apis.text.then((data) => { typeSentence(0, data); }).catch(() => {
 	console.error("[TEXT] TextWrite Module Error. apis.text did not succeed")
 })
 
-apis.education.then((data) => {
-	const education = document.querySelector(".education_data") as HTMLElement;
-	let DOMcontent = "";
-	data.forEach(element => {
-		DOMcontent += `<div class="institute">
-		<div class="ins_data">
-			<h1>${element["name"]}</h1>
-			<img src="${element["img"]}" alt="Image of ${element["name"].split(" ")[0]}">
-		</div>`;
+class education {
+	endpoint: string = "./apis/education";
+
+	constructor() {
+		this.load_data();
+	}
+
+	load_data() {
+		fetch(this.endpoint, { method: "get" }).then((data) => {
+			return data.json();
+		}).then((data) => this.load_education_data(data))
+	}
+
+	get_edu_data_body(element) {
+		let DOMcontent =
+			`<div class="institute">
+			<div class="ins_data">
+				<h1>${element["name"]}</h1>
+				<img src="${element["img"]}" alt="Image of ${element["name"].split(" ")[0]}">
+			</div>`;
 		element["results"].forEach(result => {
-			console.log(result)
 			DOMcontent += `<div class="exam">
-			<h3 class="edu">${result["name"]}</h3>
-			<span class="score">
-				<div class="slider">
-					<div class="represent" style="width: ${parseFloat(result["marks"]["got"]) / parseFloat(result["marks"]["max"]) * 100}%" data-represent="${result["marks"]["got"]}"></div>
-				</div>
-				<div class="scoreboard">
-					<span>${result["marks"]["min"]}</span>
-					<span>${result["marks"]["max"]}</span>
-				</div>  
-				<div class="info">${(result["desc"] == null ? '' : result["desc"])}</div>
-			</span>
-		</div>`;
+				<h3 class="edu">${result["name"]}</h3>
+				<span class="score">
+					<div class="slider">
+						<div class="represent" style="width: ${parseFloat(result["marks"]["got"]) / parseFloat(result["marks"]["max"]) * 100}%" data-represent="${result["marks"]["got"]}"></div>
+					</div>
+					<div class="scoreboard">
+						<span>${result["marks"]["min"]}</span>
+						<span>${result["marks"]["max"]}</span>
+					</div>  
+					<div class="info">${(result["desc"] == null ? '' : result["desc"])}</div>
+				</span>
+			</div>`;
 		})
 		DOMcontent += `</div>`
-	})
-	education.innerHTML = DOMcontent;
-}).catch(() => {
-	console.error("[EDUCATION] Education Module Error. apis.education did not succeed")
-})
-
-apis.interships.then((e) => {
-	const interData = e;
-	for (let i = 0; i < interData.length; i++) {
-		let DOMcontent = `<div class="content-box"><div class="companies"><div class="company"><img src=${interData[i].image} ${(interData[i].bg == "dark") ? 'class="dark"' : ''} alt=${interData[i].company.full}><div><h3><span class="role">${interData[i].role}</span>, <span class="company">${interData[i].company.short}</span></h3></div></div></div><div class="read-more"><button class="btn companyClicked" data-id="${i}">CLICK TO KNOW MORE</button></div></div>`
-		document.querySelector(`#dispatchWorkExperienceData`).innerHTML = document.querySelector(`#dispatchWorkExperienceData`).innerHTML + DOMcontent;
+		return DOMcontent;
 	}
-	document.querySelectorAll(".companyClicked").forEach((e) => {
-		e.addEventListener("click", (e) => {
-			eventObserverElements.main.classList.add("onBackground")
-			let curr_selection = interData[(e.target as HTMLElement | null).getAttribute("data-id")]
-			const getKeyPoints = () => {
-				let childLI
-				let main = document.createElement("div")
-				let parentUL = document.createElement('ul')
-				main.appendChild(parentUL)
-				if (curr_selection.keypoints.length == 0) {
-					return "<ul><li>No Experience posted yet... This may be because this internship is still in progress</li></ul>"
+
+	async load_education_data(data) {
+		document.querySelector(".education_data").innerHTML = "";
+		const education = document.querySelector(".education_data") as HTMLElement;
+		let DOMcontent = "";
+		data.forEach(element => {
+			DOMcontent += this.get_edu_data_body(element);
+		})
+		education.innerHTML = DOMcontent;
+	}
+}
+
+const education_widget = new education();
+
+class certificate {
+	endpoint = "./apis/certificates"
+
+	constructor() {
+		this.load_data()
+	}
+
+	get_certificate_viewmode(data) {
+		let DOMcontent;
+		if (data["link"] != null) {
+			DOMcontent = `<button class="related_files" id="getBadge" data-link="${data["link"]}">View Badge</button>`
+		}
+		if (data["docuement"] != null) {
+			DOMcontent = `<button class="related_files" id="getCertificate" data-link="${data["docuement"]}" data-title="${data["name"]}">View Certificate</button>`
+		}
+		return DOMcontent;
+	}
+
+	view_file = (e, mode) => {
+		const dispathInfoBox = document.querySelector(".dispathInfoBox")
+		dispathInfoBox.classList.add("close_open")
+		let x = e.currentTarget;
+		console.log(x)
+		const file = (x as HTMLElement | null).getAttribute("data-link")
+		document.querySelector(".dispathInfoBox").innerHTML = `<div class="resourceRequested"><div><div class="files_serve"><div class="row">${x}</div></div></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div>`
+		const resourceRequested = document.querySelector(".resourceRequested")
+		setTimeout(() => {
+			if (mode == "certificate") {
+				if (window.innerWidth < 720)
+					resourceRequested.innerHTML = `<div><iframe src="/viewpdf?doclink=${file}&title=${(x as HTMLElement | null).getAttribute("data-title")}" width="100%" frameborder="0"></iframe></div>`
+				else {
+					resourceRequested.innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`
 				}
-				for (let i = 0; i < curr_selection.keypoints.length; i++) {
-					childLI = document.createElement("li")
-					childLI.innerHTML = curr_selection.keypoints[i]
-					parentUL.appendChild(childLI)
-				}
-				return main.innerHTML
+			} else {
+				resourceRequested.innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`
 			}
-			let DOMcontent = `<div class="dispathInfoBox"><div class="internship"><div class="row"><div class="col"><img src="${curr_selection.image}" ${(curr_selection.bg == "dark") ? 'class="dark"' : ''} alt="${curr_selection.company.full}" srcset=""></div><div class="col"><h2 class="role">${curr_selection.role}</h2><h3 data-tooltip="${curr_selection.about}">${curr_selection.company.full} <span class="duration">${curr_selection.duration}</span></h3><span class="info"><div><h4>Experience</h4>${getKeyPoints()}</div></span><div>${(curr_selection.files.length == 0) ? "" : `<button class="getInternshipCompletionLetter" id="getInternshipCompletionLetter" data-id="${(e.target as HTMLElement | null).getAttribute("data-id")}">View Related Files</button>`}</div></div></div><span class="disclaimer">*Offer letter and other project details may be hidden due to legal reasons</span></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
-			document.querySelector(".sub").innerHTML = DOMcontent;
-			if (curr_selection.files.length == 0) return;
-			const internshipDataButton = document.querySelector("#getInternshipCompletionLetter")
-			internshipDataButton.removeEventListener("click", () => { })
-			internshipDataButton.addEventListener("click", (e) => {
-				const dataStream = interData[(e.target as HTMLElement | null).getAttribute("data-id")].files
-				let dispathInfoBox = document.querySelector(".dispathInfoBox");
-				dispathInfoBox.classList.add("close_open")
-				setTimeout(() => {
-					let x = ''
-					for (let i in dataStream) {
-						x += `<div class="col" data-intern-link="${dataStream[i]["file"]}" data-intern-name="${dataStream[i]["name"]}"><img src="./resources/pdf_icon.png" alt="PDF Icon"><span>${dataStream[i]["name"]}</span></div>`
-					}
-					let DOMcontent = `<div class="resourceRequested"><div><div class="files_serve"><div class="row">${x}</div></div></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div>`
-					document.querySelector(".dispathInfoBox").innerHTML = DOMcontent
-					dispathInfoBox.classList.remove("close_open")
-					const dataInterLink = document.querySelectorAll("[data-intern-link]")
-					dataInterLink.forEach((e) => {
-						e.removeEventListener("click", () => { })
-					})
-					dataInterLink.forEach((e) => {
-						e.addEventListener("click", (e) => {
-							dispathInfoBox.classList.add("close_open")
-							let x = e.currentTarget;
-							setTimeout(() => {
-								const file = (x as HTMLElement | null).getAttribute("data-intern-link")
-								if (window.innerWidth < 720)
-									document.querySelector(".resourceRequested").innerHTML = `<div><iframe src="/viewpdf?doclink=${file}&title=${(x as HTMLElement | null).getAttribute("data-intern-name")}" width="100%" frameborder="0"></iframe></div>`
-								else
-									document.querySelector(".resourceRequested").innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`
-								dispathInfoBox.classList.remove("close_open")
-							}, 200)
-						})
-					})
-				}, 200)
+			dispathInfoBox.classList.remove("close_open")
+		}, 200)
+	}
+
+	certificate_view(data) {
+		eventObserverElements.main.classList.add("onBackground")
+		let DOMcontent = `
+			<div class="dispathInfoBox">
+				<div class="certificate">
+					<div class="row">
+						<div class="col"><img src="${data["logo"]}" ${(data["bg"] == "dark") ? 'class="dark"' : ''} alt="${data["provider"]}" srcset="">
+					</div>
+					<div class="col">
+						<h2 class="role">${data["name"]}</h2>
+						<span class="info">
+							<div>
+								<h4>Certificate Information</h4>
+								<ul>${(data["info"] == null) ? '<li>No information regarding this certificate was provided</li>' : data["info"]}</span>
+							</div>
+						</span>
+						<div>${this.get_certificate_viewmode(data)}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
+		document.querySelector(".sub").innerHTML = DOMcontent;
+		if (data["link"] != null) {
+			document.querySelector("#getBadge").removeEventListener("click", () => { })
+			document.querySelector("#getBadge").addEventListener("click", (e) => this.view_file(e, "badge"))
+		}
+		if (data["docuement"] != null) {
+			document.querySelector("#getCertificate").removeEventListener("click", () => { })
+			document.querySelector("#getCertificate").addEventListener("click", (e) => this.view_file(e, "certificate"))
+		}
+	}
+
+	load_data() {
+		fetch(this.endpoint, { method: "get" }).then((data) => {
+			return data.json();
+		}).then((data) => this.load_certificate_data(data))
+	}
+
+	load_certificate_data(data) {
+		document.querySelector("#total_certificates_value").innerHTML = data.length;
+		const certificate = document.querySelector(".recent_certificate") as HTMLElement;
+		let DOMcontent = "";
+		for (let i = 0; i < data.length; i++) {
+			DOMcontent += `<div class="certificate" data-id="${i}">
+			<img src="${data[i]["logo"]}" alt="${data[i]["provider"]}">
+				<span class="name">${data[i]["name"]}</span>
+			</div>`
+		}
+		certificate.innerHTML = DOMcontent;
+		document.querySelectorAll(".certificate").forEach((element) => {
+			element.addEventListener("click", () => {
+				this.certificate_view(data[element.getAttribute("data-id")]);
 			})
 		})
-	})
-})
+	}
+}
 
-apis.projects.then((e) => {
-	const target = document.querySelector("#my_projects");
-	const appendHTML = (title, lang, comp, desc) => {
-		const compoundSelectHTML = (mode) => {
-			let stream = ((mode == 0) ? lang : comp)
-			let data = '';
-			if (mode == 0) for (let i = 0; i < stream.length; i++) data = data + `<span class="framework">${stream[i]}</span>`
-			else return (stream != null) ? `<span class="colab">${stream}</span>` : ''
-			return data
-		}
-		target.innerHTML = target.innerHTML + `<div class="project"><h4><span>${title}</span><div class="frameworks">${compoundSelectHTML(0)}${compoundSelectHTML(1)}</div></h4><div class="contain"><div class="desc">${desc}</div></div></div>`
+const certificate_widget = new certificate();
+
+class experience {
+	endpoint: string = "./apis/internship";
+
+	constructor() {
+		this.load_data()
 	}
 
-	for (let i = 0; i < e.length; i++) appendHTML(e[i].name, e[i].frameworks, e[i].organisation, e[i].desc)
-})
+	load_data() {
+		fetch(this.endpoint, { method: "get" }).then((data) => {
+			return data.json();
+		}).then((data) => this.load_internship_data(data))
+	}
+
+	get_key_points = (curr_selection) => {
+		let childLI
+		let main = document.createElement("div")
+		let parentUL = document.createElement('ul')
+		main.appendChild(parentUL)
+		if (curr_selection.keypoints.length == 0) {
+			return "<ul><li>No Experience posted yet... This may be because this internship is still in progress</li></ul>"
+		}
+		for (let i = 0; i < curr_selection.keypoints.length; i++) {
+			childLI = document.createElement("li")
+			childLI.innerHTML = curr_selection.keypoints[i]
+			parentUL.appendChild(childLI)
+		}
+		return main.innerHTML
+	}
+
+	view_file = (e, dispathInfoBox) => {
+		dispathInfoBox.classList.add("close_open")
+		let x = e.currentTarget;
+		setTimeout(() => {
+			const file = (x as HTMLElement | null).getAttribute("data-intern-link")
+			if (window.innerWidth < 720)
+				document.querySelector(".resourceRequested").innerHTML = `<div><iframe src="/viewpdf?doclink=${file}&title=${(x as HTMLElement | null).getAttribute("data-intern-name")}" width="100%" frameborder="0"></iframe></div>`
+			else
+				document.querySelector(".resourceRequested").innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`
+			dispathInfoBox.classList.remove("close_open")
+		}, 200)
+	}
+
+
+	dispatch_datafiles = (interData, e) => {
+		const dataStream = interData[(e.target as HTMLElement | null).getAttribute("data-id")].files
+		let dispathInfoBox = document.querySelector(".dispathInfoBox");
+		dispathInfoBox.classList.add("close_open")
+		setTimeout(() => {
+			let x = ''
+			for (let i in dataStream) {
+				x += `<div class="col" data-intern-link="${dataStream[i]["file"]}" data-intern-name="${dataStream[i]["name"]}"><img src="./resources/pdf_icon.png" alt="PDF Icon"><span>${dataStream[i]["name"]}</span></div>`
+			}
+			let DOMcontent = `<div class="resourceRequested"><div><div class="files_serve"><div class="row">${x}</div></div></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div>`
+			document.querySelector(".dispathInfoBox").innerHTML = DOMcontent
+			dispathInfoBox.classList.remove("close_open")
+			const dataInterLink = document.querySelectorAll("[data-intern-link]")
+			dataInterLink.forEach((e) => {
+				e.removeEventListener("click", () => { })
+				e.addEventListener("click", (e) => {
+					this.view_file(e, dispathInfoBox)
+				})
+			})
+		}, 200)
+	}
+
+	company_onclick(interData, e) {
+		eventObserverElements.main.classList.add("onBackground")
+		let curr_selection = interData[(e.target as HTMLElement | null).getAttribute("data-id")]
+		let DOMcontent = `<div class="dispathInfoBox"><div class="internship"><div class="row"><div class="col"><img src="${curr_selection.image}" ${(curr_selection.bg == "dark") ? 'class="dark"' : ''} alt="${curr_selection.company.full}" srcset=""></div><div class="col"><h2 class="role">${curr_selection.role}</h2><h3 data-tooltip="${curr_selection.about}">${curr_selection.company.full} <span class="duration">${curr_selection.duration}</span></h3><span class="info"><div><h4>Experience</h4>${this.get_key_points(curr_selection)}</div></span><div>${(curr_selection.files.length == 0) ? "" : `<button class="related_files" id="getInternshipCompletionLetter" data-id="${(e.target as HTMLElement | null).getAttribute("data-id")}">View Related Files</button>`}</div></div></div><span class="disclaimer">*Offer letter and other project details may be hidden due to legal reasons</span></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div></div>`
+		document.querySelector(".sub").innerHTML = DOMcontent;
+		if (curr_selection.files.length == 0) return;
+		const internshipDataButton = document.querySelector("#getInternshipCompletionLetter")
+		internshipDataButton.removeEventListener("click", () => { })
+		internshipDataButton.addEventListener("click", (e) => {
+			this.dispatch_datafiles(interData, e)
+		})
+	}
+
+	load_internship_data(data) {
+		const interData = data;
+		for (let i = 0; i < interData.length; i++) {
+			let DOMcontent = `<div class="content-box"><div class="companies"><div class="company"><img src=${interData[i].image} ${(interData[i].bg == "dark") ? 'class="dark"' : ''} alt=${interData[i].company.full}><div><h3><span class="role">${interData[i].role}</span>, <span class="company">${interData[i].company.short}</span></h3></div></div></div><div class="read-more"><button class="btn companyClicked" data-id="${i}">CLICK TO KNOW MORE</button></div></div>`
+			document.querySelector(`#dispatchWorkExperienceData`).innerHTML = document.querySelector(`#dispatchWorkExperienceData`).innerHTML + DOMcontent;
+		}
+		document.querySelectorAll(".companyClicked").forEach((e) => {
+			e.addEventListener("click", (e) => {
+				this.company_onclick(interData, e)
+			})
+		})
+	}
+}
+
+const intership_widget = new experience();
+
+class projects {
+	endpoint = "/apis/projects"
+
+	constructor() {
+		fetch(this.endpoint).then((e) => {
+			e.json().then((e) => {
+				this.load_project_data(e)
+			})
+		}).catch((e) => {
+			console.log(e)
+		})
+	}
+
+	compoundSelectHTML = (mode, lang, comp) => {
+		let stream = ((mode == 0) ? lang : comp)
+		let data = '';
+		if (mode == 0) for (let i = 0; i < stream.length; i++) data = data + `<span class="framework">${stream[i]}</span>`
+		else return (stream != null) ? `<span class="colab">${stream}</span>` : ''
+		return data
+	}
+
+	appendHTML = (title, lang, comp, desc) => {
+		const target = document.querySelector("#my_projects");
+		target.innerHTML = target.innerHTML + `<div class="project"><h4><span>${title}</span><div class="frameworks">${this.compoundSelectHTML(0, lang, comp)}${this.compoundSelectHTML(1, lang, comp)}</div></h4><div class="contain"><div class="desc">${desc}</div></div></div>`
+	}
+
+	load_project_data(e) {
+		document.querySelector("#total_project").innerHTML = e.length.toString()
+		for (let i = 0; i < e.length; i++) this.appendHTML(e[i].name, e[i].frameworks, e[i].organisation, e[i].desc)
+	}
+}
+
+const project_widget = new projects();
 
 // Animation and Transition
 const transitionScaling: number = 2
@@ -286,15 +449,6 @@ new IntersectionObserver(function () {
 	}
 	eventObserverElements.experience.classList.add("active")
 }, { threshold: [.6] }).observe(eventObserverElements.experience);
-// Education view
-new IntersectionObserver(function () {
-	let element = document.querySelector("[alias-education]")
-	if (!element.classList.contains("active")) {
-		document.querySelector("li.active").classList.remove("active")
-		element.classList.add("active")
-	}
-	eventObserverElements.education.classList.add("active")
-}, { threshold: [.5] }).observe(eventObserverElements.education);
 // Project view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-project]")
@@ -304,6 +458,15 @@ new IntersectionObserver(function () {
 	}
 	eventObserverElements.projects.classList.add("active")
 }, { threshold: [.5] }).observe(eventObserverElements.projects);
+// Education view
+new IntersectionObserver(() => {
+	let element = document.querySelector("[alias-education]")
+	if (!element.classList.contains("active")) {
+		document.querySelector("li.active").classList.remove("active")
+		element.classList.add("active")
+	}
+	eventObserverElements.education.classList.add("active")
+}, { threshold: [.5] }).observe(eventObserverElements.education);
 // Certificate view
 new IntersectionObserver(function () {
 	let element = document.querySelector("[alias-certificates]")

@@ -3,15 +3,15 @@
         {
             "role": "Software Developer",
             "company": {
-                "short": "IIC",
-                "full": "Industry Interaction Cell, Christ (Deemed to be) University"
+                "short": "TIEI",
+                "full": "Toyota Industries Engine India Pvt Ltd"
             },
             "bg": "dark",
             "duration": "In Progress",
             "files": [],
-            "image": "./resources/company_iic.png",
+            "image": "./resources/logo_tiei.png",
             "keypoints": [],
-            "description": "IIC is a student-run organization that provides opportunities for students to interact with industry professionals and gain valuable experience."
+            "about": "Toyota Industries Engine India is the core part of Toyota Industries Corporation, Japan. Having global presence with business interest in the areas of Material Handling Equipment, Electronics, Compressor, Textile Machinery and Engines. TIEI has been involved in the manufacture of critical transmission parts for the Toyota Group, since the year 2004."
         },
         {
             "role": "AWS Intern",
@@ -179,56 +179,104 @@
             "docuement": "./resources/certificates/aws_machine_learning.pdf",
             "require_viewer": true,
             "link": null,
-            "providor": "Amazon Web Services"
+            "logo": "./resources/aws.png",
+            "provider": "Amazon Web Services"
         },
         {
             "name": "Introduction to Machine Learning",
             "docuement": "./resources/certificates/introduction_to_machine_learning.pdf",
             "require_viewer": true,
             "link": null,
-            "providor": "Amazon Web Services"
+            "logo": "./resources/aws.png",
+            "provider": "Amazon Web Services"
         },
         {
             "name": "AWS Partner: Foundations (Business)",
             "docuement": "./resources/certificates/aws_partner_foundation.pdf",
             "require_viewer": true,
             "link": null,
-            "providor": "Amazon Web Services"
+            "logo": "./resources/aws.png",
+            "provider": "Amazon Web Services"
         },
         {
             "name": "The Joy of Computing using Python",
-            "docuement": "./resources/certificates/aws_partner_foundation.pdf",
+            "docuement": "./resources/certificates/The Joy Of Computing.pdf",
             "link": null,
             "require_viewer": true,
-            "providor": "NPTEL"
+            "logo": "./resources/nptel.png",
+            "provider": "NPTEL"
         },
         {
             "name": "AWS Partner: Cloud Economics Accreditation",
             "link": "https://www.credly.com/badges/42e561ae-841f-4b18-9a12-02995555419b?source=linked_in_profile",
             "docuement": null,
             "require_viewer": true,
-            "providor": "Amazon Web Services"
+            "logo": "./resources/aws.png",
+            "provider": "Amazon Web Services"
         },
         {
             "name": "AWS Partner: Foundations (Technical) (Digital)",
             "docuement": null,
             "link": null,
             "require_viewer": true,
-            "providor": "Amazon Web Services"
+            "logo": "./resources/aws.png",
+            "provider": "Amazon Web Services"
         },
         {
             "name": "AWS Partner: Accreditation (Business)",
             "docuement": null,
             "require_viewer": true,
             "link": "https://www.credly.com/badges/b47cae1c-9f4d-4fea-bba7-d05378ef8871?source=linked_in_profile",
-            "providor": "Amazon Web Services"
+            "logo": "./resources/aws.png",
+            "provider": "Amazon Web Services"
         },
         {
             "name": "Introduction to Cybersecurity",
             "docuement": null,
             "require_viewer": true,
+            "logo": "./resources/cisco-logo.png",
             "link": "https://www.credly.com/badges/b273d439-74fd-4c98-b262-58f5b3a1f66a?source=linked_in_profile",
-            "providor": "Cisco"
+            "provider": "Cisco"
+        },
+        {
+            "name": "Advance Excel Specialisation",
+            "docuement": null,
+            "require_viewer": true,
+            "link": "./resources/certificates/1072-Advance%20Excel%20Specialisation%20-%20501-1141%20572.jpeg",
+            "provider": "LUDIFU (Let us do it for you)",
+            "logo": "./resources/ludifu.webp"
+        },
+        {
+            "name": "Basic to Advance Excel",
+            "docuement": null,
+            "require_viewer": true,
+            "link": "./resources/certificates/1072-Basic to Advance Excel - 501-1141 572.jpeg",
+            "provider": "LUDIFU (Let us do it for you)",
+            "logo": "./resources/ludifu.webp"
+        },
+        {
+            "name": "Corporate Behavioral Skill Training",
+            "docuement": null,
+            "require_viewer": true,
+            "link": "./resources/certificates/1072-Corporate Behavioral Skill Training - 501-1141 572.jpeg",
+            "provider": "LUDIFU (Let us do it for you)",
+            "logo": "./resources/ludifu.webp"
+        },
+        {
+            "name": "Python Programming - 30 Hours Training",
+            "docuement": null,
+            "require_viewer": true,
+            "link": "./resources/certificates/1072-Python Programming - 30 Hours Training (Basic, Intermediate _ Advance Level) - 501-1141 572.jpeg",
+            "provider": "LUDIFU (Let us do it for you)",
+            "logo": "./resources/ludifu.webp"
+        },
+        {
+            "name": "English Grooming Skills",
+            "docuement": null,
+            "require_viewer": true,
+            "link": "./resources/certificates/1072-English Grooming Skills - 501-1141 572.jpeg",
+            "provider": "LUDIFU (Let us do it for you)",
+            "logo": "./resources/ludifu.webp"
         }
     ],
     "resume": "./resources/files/Resume.pdf",
@@ -286,6 +334,26 @@
             "desc": "A school attendance system built to log students attendance and view them individually and as an overview."
         },
         {
+            "name": "Campus Planner",
+            "frameworks": [
+                "Flutter",
+                "Dart 3"
+            ],
+            "organisation": null,
+            "desc": "A simple app that helps students to manage their campus like with various tools like reminders and assignment managers, time table alerts, expense tracker, etc.. with privacy built into it"
+        },
+        {
+            "name": "CAPScope CreditScore",
+            "frameworks": [
+                "PHP",
+                "SCSS",
+                "JavaScript",
+                "MySQL"
+            ],
+            "organisation": "CAPS",
+            "desc": "A credit management application that keeps track of volunteer activity to then award them with academic credit points at the end of the year/semester"
+        },
+        {
             "name": "Smartlink Connect Kit",
             "frameworks": [
                 "HTML",
@@ -319,13 +387,14 @@
             "desc": "A Discord music bot made using python and discord-api that can play, stream and download music."
         },
         {
-            "name": "Mus.io",
+            "name": "mus.io",
             "frameworks": [
                 "HTML",
                 "SCSS",
                 "JavaScript",
                 "JQuery",
-                "Python"
+                "Python (<v1.0)",
+                "Node.js (>v1.0)"
             ],
             "organisation": null,
             "desc": "A simple music player. Still in progress, this player can scan the entire local machine, find and play music. <a href=\"https://peter-k-joseph.github.io/Musio/dist/\" target=\"_blank\" rel=\"noopener noreferrer\">Click here to view a preview of the theme</a>"
@@ -411,7 +480,16 @@
                     "marks": {
                         "min": "0.00 GPA",
                         "max": "4.00 GPA",
-                        "got": "3.31 GPA"
+                        "got": "3.37 GPA"
+                    }
+                },
+                {
+                    "name": "Semester 5",
+                    "desc": null,
+                    "marks": {
+                        "min": "0.00 GPA",
+                        "max": "4.00 GPA",
+                        "got": "3.58 GPA"
                     }
                 }
             ]
