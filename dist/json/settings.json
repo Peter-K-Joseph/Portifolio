@@ -178,6 +178,7 @@
             "name": "AWS Partner: Machine Learning on AWS (Technical)",
             "docuement": "./resources/certificates/aws_machine_learning.pdf",
             "require_viewer": true,
+            "html": null,
             "link": null,
             "logo": "./resources/aws.png",
             "provider": "Amazon Web Services"
@@ -186,6 +187,7 @@
             "name": "Introduction to Machine Learning",
             "docuement": "./resources/certificates/introduction_to_machine_learning.pdf",
             "require_viewer": true,
+            "html": null,
             "link": null,
             "logo": "./resources/aws.png",
             "provider": "Amazon Web Services"
@@ -194,6 +196,7 @@
             "name": "AWS Partner: Foundations (Business)",
             "docuement": "./resources/certificates/aws_partner_foundation.pdf",
             "require_viewer": true,
+            "html": null,
             "link": null,
             "logo": "./resources/aws.png",
             "provider": "Amazon Web Services"
@@ -201,6 +204,7 @@
         {
             "name": "The Joy of Computing using Python",
             "docuement": "./resources/certificates/The Joy Of Computing.pdf",
+            "html": null,
             "link": null,
             "require_viewer": true,
             "logo": "./resources/nptel.png",
@@ -208,6 +212,7 @@
         },
         {
             "name": "AWS Partner: Cloud Economics Accreditation",
+            "html": null,
             "link": "https://www.credly.com/badges/42e561ae-841f-4b18-9a12-02995555419b?source=linked_in_profile",
             "docuement": null,
             "require_viewer": true,
@@ -217,6 +222,7 @@
         {
             "name": "AWS Partner: Foundations (Technical) (Digital)",
             "docuement": null,
+            "html": null,
             "link": null,
             "require_viewer": true,
             "logo": "./resources/aws.png",
@@ -226,6 +232,7 @@
             "name": "AWS Partner: Accreditation (Business)",
             "docuement": null,
             "require_viewer": true,
+            "html": null,
             "link": "https://www.credly.com/badges/b47cae1c-9f4d-4fea-bba7-d05378ef8871?source=linked_in_profile",
             "logo": "./resources/aws.png",
             "provider": "Amazon Web Services"
@@ -235,13 +242,24 @@
             "docuement": null,
             "require_viewer": true,
             "logo": "./resources/cisco-logo.png",
-            "link": "https://www.credly.com/badges/b273d439-74fd-4c98-b262-58f5b3a1f66a?source=linked_in_profile",
+            "html": "<div data-iframe-width=\"150\" data-iframe-height=\"270\" data-share-badge-id=\"b273d439-74fd-4c98-b262-58f5b3a1f66a\" data-share-badge-host=\"https://www.credly.com\"></div><script type=\"text/javascript\" async src=\"//cdn.credly.com/assets/utilities/embed.js\"></script>",
+            "link": null,
+            "provider": "Cisco"
+        },
+        {
+            "name": "Cybersecurity Essentials",
+            "docuement": null,
+            "require_viewer": true,
+            "logo": "./resources/cisco-logo.png",
+            "html": "<div data-iframe-width=\"150\" data-iframe-height=\"270\" data-share-badge-id=\"678376b9-2b9c-4b43-ab47-7a87e85055c3\" data-share-badge-host=\"https://www.credly.com\"></div><script type=\"text/javascript\" async src=\"//cdn.credly.com/assets/utilities/embed.js\"></script>",
+            "link": null,
             "provider": "Cisco"
         },
         {
             "name": "Advance Excel Specialisation",
             "docuement": null,
             "require_viewer": true,
+            "html": null,
             "link": "./resources/certificates/1072-Advance%20Excel%20Specialisation%20-%20501-1141%20572.jpeg",
             "provider": "LUDIFU (Let us do it for you)",
             "logo": "./resources/ludifu.webp"
@@ -250,6 +268,7 @@
             "name": "Basic to Advance Excel",
             "docuement": null,
             "require_viewer": true,
+            "html": null,
             "link": "./resources/certificates/1072-Basic to Advance Excel - 501-1141 572.jpeg",
             "provider": "LUDIFU (Let us do it for you)",
             "logo": "./resources/ludifu.webp"
@@ -258,6 +277,7 @@
             "name": "Corporate Behavioral Skill Training",
             "docuement": null,
             "require_viewer": true,
+            "html": null,
             "link": "./resources/certificates/1072-Corporate Behavioral Skill Training - 501-1141 572.jpeg",
             "provider": "LUDIFU (Let us do it for you)",
             "logo": "./resources/ludifu.webp"
@@ -266,6 +286,7 @@
             "name": "Python Programming - 30 Hours Training",
             "docuement": null,
             "require_viewer": true,
+            "html": null,
             "link": "./resources/certificates/1072-Python Programming - 30 Hours Training (Basic, Intermediate _ Advance Level) - 501-1141 572.jpeg",
             "provider": "LUDIFU (Let us do it for you)",
             "logo": "./resources/ludifu.webp"
@@ -274,6 +295,7 @@
             "name": "English Grooming Skills",
             "docuement": null,
             "require_viewer": true,
+            "html": null,
             "link": "./resources/certificates/1072-English Grooming Skills - 501-1141 572.jpeg",
             "provider": "LUDIFU (Let us do it for you)",
             "logo": "./resources/ludifu.webp"
@@ -490,6 +512,15 @@
                         "min": "0.00 GPA",
                         "max": "4.00 GPA",
                         "got": "3.58 GPA"
+                    }
+                },
+                {
+                    "name": "Semester 6",
+                    "desc": null,
+                    "marks": {
+                        "min": "0.00 GPA",
+                        "max": "4.00 GPA",
+                        "got": "3.77 GPA"
                     }
                 }
             ]

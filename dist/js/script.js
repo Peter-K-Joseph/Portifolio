@@ -422,7 +422,7 @@ new IntersectionObserver(() => {
         element.classList.add("active");
     }
     eventObserverElements.education.classList.add("active");
-}, { threshold: [.5] }).observe(eventObserverElements.education);
+}, { threshold: [.4] }).observe(eventObserverElements.education);
 // Certificate view
 new IntersectionObserver(function () {
     let element = document.querySelector("[alias-certificates]");
@@ -431,7 +431,7 @@ new IntersectionObserver(function () {
         element.classList.add("active");
     }
     eventObserverElements.certificates.classList.add("active");
-}, { threshold: [.5] }).observe(eventObserverElements.certificates);
+}, { threshold: [.4] }).observe(eventObserverElements.certificates);
 // Scroll View observer for elements
 document.querySelector(".main").addEventListener("scroll", () => {
     const rendererOnView = () => {

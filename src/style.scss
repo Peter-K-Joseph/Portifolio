@@ -11,6 +11,7 @@
     font-family: RoxaleStory;
     src: url(../resources/fonts/RoxaleStory.otf);
 }
+
 @font-face {
     font-family: Quentin;
     src: url(../resources/fonts/Quentin.otf);
@@ -140,6 +141,8 @@ body {
 
 * {
     text-rendering: geometricPrecision;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .dispathInfoBox {
@@ -266,7 +269,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         .row {
             display: flex;
             align-items: center;
@@ -280,7 +283,8 @@ body {
         }
     }
 
-    >.certificate, >.internship {
+    >.certificate,
+    >.internship {
         padding: 30px 0;
 
         img {
@@ -592,6 +596,7 @@ body {
     }
 
     >#certificates {
+        min-height: 100vh;
 
         .render {
             h3 {
@@ -602,66 +607,8 @@ body {
                 color: #e0d5c0;
                 text-align: center;
             }
+        }
 
-            // .display {
-            //     display: grid;
-            //     grid-template-columns: 1fr 1fr;
-            //     grid-auto-rows: 50%;
-
-            //     .certificate_title {
-            //         font-family: "Manrope", sans-serif;
-            //         width: 80%;
-            //         font-weight: 800;
-            //         font-size: 1.2rem;
-            //         padding: 20px;
-            //         border-radius: .25rem;
-            //         margin: 10px auto;
-            //         color: #e0d5c0;
-            //         text-align: center;
-            //         display: flex;
-            //         align-items: center;
-            //         justify-content: space-between;
-
-            //         .organisation_certifier {
-            //             background-position: center;
-            //             background-image: url("../resources/organisation_ludifu.webp");
-            //             width: 100px;
-            //             height: 100px;
-            //             background-repeat: no-repeat;
-            //             background-size: contain;
-            //         }
-                    
-            //         &:nth-child(even) {
-            //             background-image: linear-gradient( 65.5deg,  rgba(23,205,205,1) -15.1%, rgba(23,25,95,1) 71.5% );
-            //         }
-
-            //         &:nth-child(odd) {
-            //             background: linear-gradient(25deg,#d64c7f,#ee4758 50%);
-            //         }
-
-            //         > div {
-            //             display: flex;
-            //             align-items: center;
-            //             justify-content: center;
-            //             flex-direction: column;
-            //             padding: 0 30px;
-            //             width: 100%;
-                        
-            //             span {
-            //                 &.provider {
-            //                     width: 100%;
-            //                     font-size: .8rem;
-            //                     opacity: .8;
-    
-            //                     &::before {
-            //                         content: "Certified By ";
-            //                     }
-            //                 }
-            //             }
-            //         }
-            //     }
-            }
-        // }
         #my_certificates {
             background-color: white;
             margin: 0 auto;
@@ -678,6 +625,8 @@ body {
 
                 .recent_certificate {
                     display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
                     width: 100%;
                     margin-top: 20px;
                     overflow-y: auto;
@@ -686,9 +635,9 @@ body {
                     .certificate {
                         width: 300px;
                         min-height: 150px;
-                        background-color: white; 
+                        background-color: white;
                         cursor: pointer;
-                        margin: 0 20px;
+                        margin: 20px;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -717,7 +666,7 @@ body {
                     }
                 }
 
-                > span {
+                >span {
                     font-size: 2rem;
                     font-weight: 500;
                     font-family: 'Playfair Display', serif;
@@ -748,21 +697,27 @@ body {
                         0% {
                             background-position: 0 0;
                         }
+
                         20% {
                             background-position: 20% 30%;
                         }
+
                         40% {
                             background-position: 40% 60%;
                         }
+
                         50% {
                             background-position: 50% 60%;
                         }
+
                         60% {
                             background-position: 40% 80%;
                         }
+
                         80% {
                             background-position: 20% 30%;
                         }
+
                         100% {
                             background-position: 0% 0;
                         }
@@ -1179,6 +1134,12 @@ body {
                         font-size: 4rem;
                         margin: 10px 0;
                         color: white;
+
+                        &.intro_min {
+                            font-size: 1.5rem;
+                            font-weight: 300;
+                            color: var(--grey-100);
+                        }
                     }
 
                     >div {
@@ -1589,12 +1550,12 @@ nav {
             transform: rotate(-90deg) translate(-50%, 150%) !important;
             top: 0;
         }
-        
+
         .col h3 {
             flex-direction: column;
         }
 
-        > div > iframe {
+        >div>iframe {
             width: 100%;
             height: 100%;
         }

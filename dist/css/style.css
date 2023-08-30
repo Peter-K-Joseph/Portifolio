@@ -118,6 +118,7 @@ body {
 
 * {
   text-rendering: geometricPrecision;
+  font-family: "Roboto", sans-serif;
 }
 
 .dispathInfoBox {
@@ -236,26 +237,32 @@ body {
   width: 150px;
   object-fit: contain;
 }
-.dispathInfoBox > .certificate, .dispathInfoBox > .internship {
+.dispathInfoBox > .certificate,
+.dispathInfoBox > .internship {
   padding: 30px 0;
 }
-.dispathInfoBox > .certificate img, .dispathInfoBox > .internship img {
+.dispathInfoBox > .certificate img,
+.dispathInfoBox > .internship img {
   padding: 5px 15px;
   border-radius: 0.2rem;
   background-color: var(--white);
 }
-.dispathInfoBox > .certificate img.dark, .dispathInfoBox > .internship img.dark {
+.dispathInfoBox > .certificate img.dark,
+.dispathInfoBox > .internship img.dark {
   background-color: var(--grey-900);
 }
-.dispathInfoBox > .certificate .col, .dispathInfoBox > .internship .col {
+.dispathInfoBox > .certificate .col,
+.dispathInfoBox > .internship .col {
   width: 100%;
   text-align: center;
 }
-.dispathInfoBox > .certificate .col h2, .dispathInfoBox > .internship .col h2 {
+.dispathInfoBox > .certificate .col h2,
+.dispathInfoBox > .internship .col h2 {
   font-weight: 500;
   font-family: "Source Sans Pro", sans-serif;
 }
-.dispathInfoBox > .certificate .col h3, .dispathInfoBox > .internship .col h3 {
+.dispathInfoBox > .certificate .col h3,
+.dispathInfoBox > .internship .col h3 {
   font-weight: 300;
   display: flex;
   align-items: center;
@@ -263,10 +270,12 @@ body {
   cursor: pointer;
   margin: 0;
 }
-.dispathInfoBox > .certificate .col h3:hover, .dispathInfoBox > .internship .col h3:hover {
+.dispathInfoBox > .certificate .col h3:hover,
+.dispathInfoBox > .internship .col h3:hover {
   text-decoration: underline;
 }
-.dispathInfoBox > .certificate .col button, .dispathInfoBox > .internship .col button {
+.dispathInfoBox > .certificate .col button,
+.dispathInfoBox > .internship .col button {
   padding: 5px 50px;
   font-size: 1rem;
   border: none;
@@ -276,31 +285,39 @@ body {
   transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   margin: 4px;
 }
-.dispathInfoBox > .certificate .col button.related_files, .dispathInfoBox > .internship .col button.related_files {
+.dispathInfoBox > .certificate .col button.related_files,
+.dispathInfoBox > .internship .col button.related_files {
   background-color: var(--btn-accept);
 }
-.dispathInfoBox > .certificate .col button.related_files:hover, .dispathInfoBox > .internship .col button.related_files:hover {
+.dispathInfoBox > .certificate .col button.related_files:hover,
+.dispathInfoBox > .internship .col button.related_files:hover {
   background-color: var(--green-500);
 }
-.dispathInfoBox > .certificate .col button.related_files:active, .dispathInfoBox > .internship .col button.related_files:active {
+.dispathInfoBox > .certificate .col button.related_files:active,
+.dispathInfoBox > .internship .col button.related_files:active {
   background-color: var(--green-700);
 }
-.dispathInfoBox > .certificate .col button.close_dispatchBox, .dispathInfoBox > .internship .col button.close_dispatchBox {
+.dispathInfoBox > .certificate .col button.close_dispatchBox,
+.dispathInfoBox > .internship .col button.close_dispatchBox {
   color: white;
   background-color: var(--btn-reject);
 }
-.dispathInfoBox > .certificate .col button.close_dispatchBox:hover, .dispathInfoBox > .internship .col button.close_dispatchBox:hover {
+.dispathInfoBox > .certificate .col button.close_dispatchBox:hover,
+.dispathInfoBox > .internship .col button.close_dispatchBox:hover {
   background-color: var(--red-500);
 }
-.dispathInfoBox > .certificate .col button.close_dispatchBox:active, .dispathInfoBox > .internship .col button.close_dispatchBox:active {
+.dispathInfoBox > .certificate .col button.close_dispatchBox:active,
+.dispathInfoBox > .internship .col button.close_dispatchBox:active {
   background-color: var(--red-700);
 }
-.dispathInfoBox > .certificate .col .info, .dispathInfoBox > .internship .col .info {
+.dispathInfoBox > .certificate .col .info,
+.dispathInfoBox > .internship .col .info {
   display: flex;
   overflow: auto;
   margin: 20px auto;
 }
-.dispathInfoBox > .certificate .col .info h4, .dispathInfoBox > .internship .col .info h4 {
+.dispathInfoBox > .certificate .col .info h4,
+.dispathInfoBox > .internship .col .info h4 {
   font-size: 1.5rem;
   font-weight: 300;
   margin: 0;
@@ -310,7 +327,8 @@ body {
   margin: 0 auto;
   border-radius: 0.3rem 0.3rem 0 0;
 }
-.dispathInfoBox > .certificate .col .info ul, .dispathInfoBox > .internship .col .info ul {
+.dispathInfoBox > .certificate .col .info ul,
+.dispathInfoBox > .internship .col .info ul {
   background-color: var(--grey-900);
   padding: 20px 50px;
   text-align: left;
@@ -319,7 +337,8 @@ body {
   font-size: 1.1rem;
   border-radius: 0.3rem;
 }
-.dispathInfoBox > .certificate .col .info ul h4, .dispathInfoBox > .internship .col .info ul h4 {
+.dispathInfoBox > .certificate .col .info ul h4,
+.dispathInfoBox > .internship .col .info ul h4 {
   all: unset;
 }
 .dispathInfoBox > .internship {
@@ -499,6 +518,9 @@ body {
   color: #e0d5c0;
   font-family: "Source Sans Pro", sans-serif;
 }
+.main > #certificates {
+  min-height: 100vh;
+}
 .main > #certificates .render h3 {
   font-family: "Manrope", sans-serif;
   width: 100%;
@@ -523,6 +545,8 @@ body {
 }
 .main > #certificates #my_certificates .recents .recent_certificate {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   margin-top: 20px;
   overflow-y: auto;
@@ -533,7 +557,7 @@ body {
   min-height: 150px;
   background-color: white;
   cursor: pointer;
-  margin: 0 20px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -945,6 +969,11 @@ body {
   margin: 10px 0;
   color: white;
 }
+.main #home .col:nth-child(2) div h1.intro_min {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--grey-100);
+}
 .main #home .col:nth-child(2) div > div ul {
   display: flex;
   align-items: center;
@@ -1190,6 +1219,7 @@ nav ul li.active {
     height: 100vh;
     max-height: 100vh;
   }
+
   body {
     flex-direction: column-reverse;
     --offset-mobile-tab: 50px;
@@ -1265,6 +1295,7 @@ nav ul li.active {
     padding: 0 20px;
     font-size: 1.2rem;
   }
+
   .dispathInfoBox {
     width: 100vw;
     z-index: 1000;
