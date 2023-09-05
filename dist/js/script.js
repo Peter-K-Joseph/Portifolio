@@ -148,12 +148,16 @@ class certificate {
         this.load_data();
     }
     get_certificate_viewmode(data) {
+        console.log(data);
         let DOMcontent;
         if (data["link"] != null) {
-            DOMcontent = `<button class="related_files" id="getBadge" data-link="${data["link"]}">View Badge</button>`;
+            DOMcontent = `<button class="related_files" id="getBadge" data-link="${data["link"]}">View Certificate</button>`;
         }
         if (data["docuement"] != null) {
             DOMcontent = `<button class="related_files" id="getCertificate" data-link="${data["docuement"]}" data-title="${data["name"]}">View Certificate</button>`;
+        }
+        if (data["html"] != null) {
+            DOMcontent = `<button class='related_files' id='getBadge' data-link='${data['html']}' data-title='${data['name']}'>View Badge</button>`;
         }
         return DOMcontent;
     }
@@ -169,12 +173,12 @@ class certificate {
             if (mode == "certificate") {
                 if (window.innerWidth < 720)
                     resourceRequested.innerHTML = `<div><iframe src="/viewpdf?doclink=${file}&title=${x.getAttribute("data-title")}" width="100%" frameborder="0"></iframe></div>`;
-                else {
-                    resourceRequested.innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`;
-                }
             }
-            else {
+            else if (mode == "link") {
                 resourceRequested.innerHTML = `<div><iframe src="${file}" width="100%" frameborder="0"></iframe></div>`;
+            }
+            else if (mode == "badge") {
+                resourceRequested.innerHTML = `<div>${file}</div>`;
             }
             dispathInfoBox.classList.remove("close_open");
         }, 200);
@@ -204,11 +208,15 @@ class certificate {
         document.querySelector(".sub").innerHTML = DOMcontent;
         if (data["link"] != null) {
             document.querySelector("#getBadge").removeEventListener("click", () => { });
-            document.querySelector("#getBadge").addEventListener("click", (e) => this.view_file(e, "badge"));
+            document.querySelector("#getBadge").addEventListener("click", (e) => this.view_file(e, "link"));
         }
         if (data["docuement"] != null) {
             document.querySelector("#getCertificate").removeEventListener("click", () => { });
             document.querySelector("#getCertificate").addEventListener("click", (e) => this.view_file(e, "certificate"));
+        }
+        if (data["html"] != null) {
+            document.querySelector("#getBadge").removeEventListener("click", () => { });
+            document.querySelector("#getBadge").addEventListener("click", (e) => this.view_file(e, "badge"));
         }
     }
     load_data() {
