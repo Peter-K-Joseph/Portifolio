@@ -93,7 +93,7 @@ app.get("/debug/system/logs", (req, res) => {
 	res.send(fs.readFileSync("system.log"));
 });
 
-app.listen(() => {
+app.listen(port, () => {
 	logger.info(`Portifolio app is online and is active at PORT:${port}`);
 });
 

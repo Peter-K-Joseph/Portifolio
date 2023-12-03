@@ -170,6 +170,7 @@ class certificate {
         document.querySelector(".dispathInfoBox").innerHTML = `<div class="resourceRequested"><div><div class="files_serve"><div class="row">${x}</div></div></div></div><div class="goback" id="closeEventButton" onclick="apis.dispatch_viewBarClose()">Click to close</div>`;
         const resourceRequested = document.querySelector(".resourceRequested");
         setTimeout(() => {
+            console.log(mode, file)
             if (mode == "certificate") {
                 if (window.innerWidth < 720)
                     resourceRequested.innerHTML = `<div><iframe src="/viewpdf?doclink=${file}&title=${x.getAttribute("data-title")}" width="100%" frameborder="0"></iframe></div>`;
