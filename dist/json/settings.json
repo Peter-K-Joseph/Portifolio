@@ -1,6 +1,19 @@
 {
     "interships": [
         {
+            "role": "IT Technical Engineer",
+            "company": {
+                "short": "Signify",
+                "full": "Signify Innovations India PVT LTD"
+            },
+            "bg": "dark",
+            "duration": "In Progress",
+            "files": [],
+            "image": "./resources/signify-logo.png",
+            "keypoints": [],
+            "about": "Signify is the world leader in lighting for professionals, consumers and lighting for the Internet of Things. Our energy efficient lighting products, systems and services enable our customers to enjoy a superior quality of light, and make people's lives safer and more comfortable, and businesses more productive and cities more livable."
+        },
+        {
             "role": "Software Developer",
             "company": {
                 "short": "TIEI",
@@ -10,7 +23,15 @@
             "duration": "In Progress",
             "files": [],
             "image": "./resources/logo_tiei.png",
-            "keypoints": [],
+            "keypoints": [
+                "Incharge of Creation, Management and Deployment of Custom Applications and Software",
+                "Digitalising Excel based data to web based applications",
+                "Creating and managing databases",
+                "Creating and managing APIs",
+                "Creating and managing web applications",
+                "Creating and managing mobile applications",
+                "Collaborating with other departments to create and manage applications"
+            ],
             "about": "Toyota Industries Engine India is the core part of Toyota Industries Corporation, Japan. Having global presence with business interest in the areas of Material Handling Equipment, Electronics, Compressor, Textile Machinery and Engines. TIEI has been involved in the manufacture of critical transmission parts for the Toyota Group, since the year 2004."
         },
         {
